@@ -58,5 +58,34 @@ namespace UserLogin
 
             return null;
         }
+
+        public static void SetUserActiveTo(string username, DateTime newDateRegister)
+        {
+
+            foreach (User givenUser in TestUsers)
+            {
+                if (givenUser.username.Equals(username))
+                {
+                    givenUser.created = newDateRegister;
+                    return;
+                }
+            }
+
+            throw new Exception("There is no User with that username in the base!");
+        }
+
+        public static void AssignUserRole(string username, ushort newRole)
+        {
+            foreach (User givenUser in TestUsers)
+            {
+                if (givenUser.username.Equals(username))
+                {
+                    givenUser.roleId = newRole;
+                    return;
+                }
+            }
+
+            throw new Exception("There is no User with that username in the base!");
+        }
     }
 }
