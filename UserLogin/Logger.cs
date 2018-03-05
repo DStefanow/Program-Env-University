@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace UserLogin
@@ -23,20 +24,17 @@ namespace UserLogin
             }
         }
 
-        public static void GetCurrentSessionActivies()
+        public static void GetCurrentSessionActivies(string filter)
         {
-            string filePath = @"..\..\..\activity.txt";
-            StreamReader sr = new StreamReader(filePath);
-
             StringBuilder allText = new StringBuilder();
 
-            int lineCount = 1;
-            while (!sr.EndOfStream)
-            {
-                string line = lineCount + "| " + sr.ReadLine() + "\r\n";
-                allText.Append(line);
+            List<string> filteredActivities = (from activity in currentSessionActivities
+                                               where activity.Contains(filter)
+                                               select activity).ToList();
 
-                lineCount++;
+            foreach (string currentLine in filteredActivities)
+            {
+                allText.Append(currentLine);
             }
 
             Console.WriteLine(allText);

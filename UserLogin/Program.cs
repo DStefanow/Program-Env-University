@@ -42,8 +42,8 @@ namespace UserLogin
             Console.WriteLine("\r\nHello Admin\r\nChoose a option:" +
                 "\r\n1. Show all usernames.\r\n2. Change user date." +
                 "\r\n3. Change user role." +
-                "\r\n4. Show users activity(Direct print)." +
-                "\r\n5. Show users activity(String Builder).");
+                "\r\n4. Show users activity(no filter)." +
+                "\r\n5. Show users activity(with filter - contains ).");
             Console.Write("\r\nOption: ");
             option = UInt16.Parse(Console.ReadLine());
 
@@ -55,7 +55,7 @@ namespace UserLogin
                 case 2: ChangeUserDate(ref allUsers); break;
                 case 3: ChangeUserRole(ref allUsers); break;
                 case 4: UserData.ShowUserActivity(); break;
-                case 5: Logger.GetCurrentSessionActivies(); break;
+                case 5: GetUserActivitiesWithFilter(); break;
                 default: Console.WriteLine("No such option in the menu"); break;
             }
         }
@@ -110,9 +110,18 @@ namespace UserLogin
             }
         }
 
+        private static void GetUserActivitiesWithFilter()
+        {
+            Console.Write("Enter filter word: ");
+            string filter = Console.ReadLine();
+
+            Logger.GetCurrentSessionActivies(filter);
+        }
+
         public static void ValidationErrorHandler(string errorMsg)
         {
             Console.WriteLine("Error during registration: {0}", errorMsg);
         }
+        
     }
 }
