@@ -78,13 +78,13 @@ namespace UserLogin
         public static void SetUserActiveTo(int userId, DateTime newDateRegister)
         {
             TestUsers[userId].created = newDateRegister;
-            Logger.LogActivity("Change date to: " + TestUsers[userId].username + "new date: " + newDateRegister);
+            Logger.LogActivity("Change date to: " + TestUsers[userId].username + " new date: " + newDateRegister);
         }
 
         public static void AssignUserRole(int userId, ushort newRole)
         {
             TestUsers[userId].roleId = newRole;
-            Logger.LogActivity("Change role to: " + TestUsers[userId].username + "new role: " + newRole);
+            Logger.LogActivity("Change role to: " + TestUsers[userId].username + " new role: " + newRole);
         }
     }
 }

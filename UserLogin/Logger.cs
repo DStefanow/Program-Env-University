@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace UserLogin
 {
@@ -9,10 +10,16 @@ namespace UserLogin
 
         public static void LogActivity(string activity)
         {
-            string activityLine = DateTime.Now + ";" + LoginValidation.currentUserUsername + ";" +
-                LoginValidation.currentUserRole + ";" + activity;
+            string activityLine = DateTime.Now + " ; " + LoginValidation.currentUserUsername + " ; " +
+                LoginValidation.currentUserRole + " ; " + activity + "\r\n";
 
             Logger.currentSessionActivities.Add(activityLine);
+            
+            string fileName = @"..\..\..\activity.txt";
+            if (File.Exists(fileName))
+            {
+                File.AppendAllText(fileName, activityLine);
+            }
         }
     }
 }
