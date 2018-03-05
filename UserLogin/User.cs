@@ -8,5 +8,6 @@ namespace UserLogin
         public string password;
         public string facNumber;
         public int roleId;
+        public DateTime created;
     }
 }

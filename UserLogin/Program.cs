@@ -20,8 +20,8 @@ namespace UserLogin
 
             if (validator.ValidateUserInput(ref user))
             {
-                Console.WriteLine("Data for user: Username - {0}, Password - {1}, Fac. Number: {2}, role: {3}",
-                    user.username, user.password, user.facNumber, LoginValidation.currentUserRole);
+                Console.WriteLine("Data for user: Username - {0}, Password - {1}, Fac. Number: {2}, date register: {3}, role: {4}",
+                    user.username, user.password, user.facNumber, user.created, LoginValidation.currentUserRole);
             }
             else
             {

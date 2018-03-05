@@ -32,7 +32,7 @@ namespace UserLogin
                 _testUsers[i].username = username + i;
                 _testUsers[i].password = password + i;
                 _testUsers[i].facNumber = facNumber + i;
-
+                _testUsers[i].created = DateTime.Now;
                 // set 1 Administrator
                 if (i == 0)
                 {
