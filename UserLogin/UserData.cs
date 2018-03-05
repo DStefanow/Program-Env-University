@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace UserLogin
 {
@@ -85,6 +86,21 @@ namespace UserLogin
         {
             TestUsers[userId].roleId = newRole;
             Logger.LogActivity("Change role to: " + TestUsers[userId].username + " new role: " + newRole);
+        }
+
+        public static void ShowUserActivity()
+        {
+            string filePath = @"..\..\..\activity.txt";
+            StreamReader sr = new StreamReader(filePath);
+
+            int lineCount = 1;
+            while (!sr.EndOfStream)
+            {
+                string line = lineCount + "| " + sr.ReadLine();
+                Console.WriteLine(line);
+
+                lineCount++;
+            }
         }
     }
 }

@@ -15,10 +15,10 @@ namespace UserLogin
 
             Logger.currentSessionActivities.Add(activityLine);
             
-            string fileName = @"..\..\..\activity.txt";
-            if (File.Exists(fileName))
+            string filePath = @"..\..\..\activity.txt";
+            if (File.Exists(filePath))
             {
-                File.AppendAllText(fileName, activityLine);
+                File.AppendAllText(filePath, activityLine);
             }
         }
     }

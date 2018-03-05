@@ -40,8 +40,9 @@ namespace UserLogin
             ushort option;
 
             Console.WriteLine("\r\nHello Admin\r\nChoose a option:" +
-                "\r\n1. Show all usernames.\r\n2.Change user date." +
-                "\r\n3.Change user role.");
+                "\r\n1. Show all usernames.\r\n2. Change user date." +
+                "\r\n3. Change user role." +
+                "\r\n4. Show users activity.\r\n");
             Console.Write("\r\nOption: ");
             option = UInt16.Parse(Console.ReadLine());
 
@@ -52,6 +53,7 @@ namespace UserLogin
                 case 1: ShowAllUsernames(); break;
                 case 2: ChangeUserDate(ref allUsers); break;
                 case 3: ChangeUserRole(ref allUsers); break;
+                case 4: UserData.ShowUserActivity(); break;
                 default: Console.WriteLine("No such option in the menu"); break;
             }
         }
