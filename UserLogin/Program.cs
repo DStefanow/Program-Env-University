@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace UserLogin
 {
@@ -38,15 +39,28 @@ namespace UserLogin
         {
             ushort option;
 
-            Console.WriteLine("\r\nHello Admin\r\nChoose a option:\r\n1. Change user role.\r\n2.Change user date.");
+            Console.WriteLine("\r\nHello Admin\r\nChoose a option:" +
+                "\r\n1. Show all usernames.\r\n2.Change user date." +
+                "\r\n3.Change user role.");
             Console.Write("\r\nOption: ");
             option = UInt16.Parse(Console.ReadLine());
 
             switch (option)
             {
-                case 1: ChangeUserRole(); break;
+                case 1: ShowAllUsernames(); break;
                 case 2: ChangeUserDate(); break;
+                case 3: ChangeUserRole(); break;
                 default: Console.WriteLine("No such option in the menu"); break;
+            }
+        }
+
+        private static void ShowAllUsernames()
+        {
+            Dictionary<string, int> usernames = UserData.AllUsersUsernames();
+
+            foreach (KeyValuePair<string, int> username in usernames)
+            {
+                Console.WriteLine("Username: {0} with id: {1}", username.Key, username.Value);
             }
         }
 

@@ -16,19 +16,21 @@ namespace UserLogin
             set { }
         }
 
-        private static List<User> _testUsers = new List<User>(3);
+        private static List<User> _testUsers;
 
         private static void ResetTestUserData()
         {
+            _testUsers = new List<User>();
+
             string username = "Dobromir";
             string password = "qwerty";
             string facNumber = "121215019";
 
             // Create new user
-            for (int i = 0; i < _testUsers.Capacity; i++)
+            for (int i = 0; i < 3; i++)
             {
                 User currentUser = new User();
-
+                
                 currentUser.username = username + i;
                 currentUser.password = password + i;
                 currentUser.facNumber = facNumber + i;
@@ -48,6 +50,18 @@ namespace UserLogin
             }
         }
 
+        public static Dictionary<string, int> AllUsersUsernames()
+        {
+            Dictionary<string, int> usernames = new Dictionary<string, int>();
+
+            for (int i = 0; i < TestUsers.Count; i++)
+            {
+                usernames.Add(TestUsers[i].username, i);
+            }
+
+            return usernames;
+        }
+
         public static User IsUserPassCorrect(User user)
         {
             foreach (User givenUser in TestUsers)
@@ -63,7 +77,6 @@ namespace UserLogin
 
         public static void SetUserActiveTo(string username, DateTime newDateRegister)
         {
-
             foreach (User givenUser in TestUsers)
             {
                 if (givenUser.username.Equals(username))
