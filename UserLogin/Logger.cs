@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 
 namespace UserLogin
 {
@@ -20,6 +21,25 @@ namespace UserLogin
             {
                 File.AppendAllText(filePath, activityLine);
             }
+        }
+
+        public static void GetCurrentSessionActivies()
+        {
+            string filePath = @"..\..\..\activity.txt";
+            StreamReader sr = new StreamReader(filePath);
+
+            StringBuilder allText = new StringBuilder();
+
+            int lineCount = 1;
+            while (!sr.EndOfStream)
+            {
+                string line = lineCount + "| " + sr.ReadLine() + "\r\n";
+                allText.Append(line);
+
+                lineCount++;
+            }
+
+            Console.WriteLine(allText);
         }
     }
 }

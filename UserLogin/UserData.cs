@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
 namespace UserLogin
 {
@@ -93,19 +92,15 @@ namespace UserLogin
         {
             string filePath = @"..\..\..\activity.txt";
             StreamReader sr = new StreamReader(filePath);
-
-            StringBuilder allText = new StringBuilder();
-
+            
             int lineCount = 1;
             while (!sr.EndOfStream)
             {
-                string line = lineCount + "| " + sr.ReadLine() + "\r\n";
-                allText.Append(line);
+                string line = lineCount + "| " + sr.ReadLine();
+                Console.WriteLine(line);
 
                 lineCount++;
             }
-
-            Console.WriteLine(allText);
         }
     }
 }
