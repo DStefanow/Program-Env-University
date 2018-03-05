@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace UserLogin
 {
@@ -65,14 +66,13 @@ namespace UserLogin
 
         public static User IsUserPassCorrect(User user)
         {
-            foreach (User givenUser in TestUsers)
+            User searchedUser = TestUsers.FirstOrDefault(u => u.username == user.username && u.password == user.password);
+            
+            if (searchedUser != null)
             {
-                if (user.username == givenUser.username && user.password == givenUser.password)
-                {
-                    return givenUser;
-                }
+                return searchedUser;
             }
-
+            
             return null;
         }
 
