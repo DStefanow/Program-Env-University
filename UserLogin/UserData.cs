@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace UserLogin
 {
     static class UserData
     {
-        public static User[] TestUsers
+        public static List<User> TestUsers
         {
             get
             {
@@ -15,7 +16,7 @@ namespace UserLogin
             set { }
         }
 
-        private static User[] _testUsers;
+        private static List<User> _testUsers = new List<User>(3);
 
         private static void ResetTestUserData()
         {
@@ -24,25 +25,26 @@ namespace UserLogin
             string facNumber = "121215019";
 
             // Create new user
-            _testUsers = new User[3];
-            for (int i = 0; i < _testUsers.Length; i++)
+            for (int i = 0; i < _testUsers.Capacity; i++)
             {
-                _testUsers[i] = new User();
+                User currentUser = new User();
 
-                _testUsers[i].username = username + i;
-                _testUsers[i].password = password + i;
-                _testUsers[i].facNumber = facNumber + i;
-                _testUsers[i].created = DateTime.Now;
+                currentUser.username = username + i;
+                currentUser.password = password + i;
+                currentUser.facNumber = facNumber + i;
+                currentUser.created = DateTime.Now;
                 // set 1 Administrator
                 if (i == 0)
                 {
-                    _testUsers[i].roleId = 1;
+                    currentUser.roleId = 1;
                 }
                 // set 2 Students
                 else
                 {
-                    _testUsers[i].roleId = 4;
+                    currentUser.roleId = 4;
                 }
+
+                _testUsers.Add(currentUser);
             }
         }
 
@@ -67,6 +69,7 @@ namespace UserLogin
                 if (givenUser.username.Equals(username))
                 {
                     givenUser.created = newDateRegister;
+                    Logger.LogActivity("Change date to: " + username + "new date: " + newDateRegister);
                     return;
                 }
             }
@@ -81,6 +84,7 @@ namespace UserLogin
                 if (givenUser.username.Equals(username))
                 {
                     givenUser.roleId = newRole;
+                    Logger.LogActivity("Change role to: " + username + "new role: " + newRole);
                     return;
                 }
             }

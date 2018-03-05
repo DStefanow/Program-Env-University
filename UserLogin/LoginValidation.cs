@@ -65,6 +65,9 @@ namespace UserLogin
             currentUserRole = (UserRoles)user.roleId;
             LoginValidation.currentUserUsername = user.username;
 
+            // Set activity in the Logger
+            Logger.LogActivity("Successful Login");
+
             return true;
         }
     }
