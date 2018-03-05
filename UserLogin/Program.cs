@@ -45,11 +45,13 @@ namespace UserLogin
             Console.Write("\r\nOption: ");
             option = UInt16.Parse(Console.ReadLine());
 
+            Dictionary<string, int> allUsers = UserData.AllUsersUsernames();
+
             switch (option)
             {
                 case 1: ShowAllUsernames(); break;
-                case 2: ChangeUserDate(); break;
-                case 3: ChangeUserRole(); break;
+                case 2: ChangeUserDate(ref allUsers); break;
+                case 3: ChangeUserRole(ref allUsers); break;
                 default: Console.WriteLine("No such option in the menu"); break;
             }
         }
@@ -64,7 +66,7 @@ namespace UserLogin
             }
         }
 
-        private static void ChangeUserDate()
+        private static void ChangeUserDate(ref Dictionary<string, int> allUsers)
         {
             string username;
             DateTime newDate;
@@ -76,7 +78,7 @@ namespace UserLogin
 
             try
             {
-                UserData.SetUserActiveTo(username, newDate);
+                UserData.SetUserActiveTo(allUsers[username], newDate);
             }
             catch (Exception e)
             {
@@ -84,7 +86,7 @@ namespace UserLogin
             }
         }
 
-        private static void ChangeUserRole()
+        private static void ChangeUserRole(ref Dictionary<string, int> allUsers)
         {
             string username;
             ushort newRole;
@@ -96,7 +98,7 @@ namespace UserLogin
 
             try
             {
-                UserData.AssignUserRole(username, newRole);
+                UserData.AssignUserRole(allUsers[username], newRole);
             }
             catch (Exception e)
             {

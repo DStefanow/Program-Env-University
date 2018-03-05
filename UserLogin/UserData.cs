@@ -27,7 +27,7 @@ namespace UserLogin
             string facNumber = "121215019";
 
             // Create new user
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 4; i++)
             {
                 User currentUser = new User();
                 
@@ -75,34 +75,16 @@ namespace UserLogin
             return null;
         }
 
-        public static void SetUserActiveTo(string username, DateTime newDateRegister)
+        public static void SetUserActiveTo(int userId, DateTime newDateRegister)
         {
-            foreach (User givenUser in TestUsers)
-            {
-                if (givenUser.username.Equals(username))
-                {
-                    givenUser.created = newDateRegister;
-                    Logger.LogActivity("Change date to: " + username + "new date: " + newDateRegister);
-                    return;
-                }
-            }
-
-            throw new Exception("There is no User with that username in the base!");
+            TestUsers[userId].created = newDateRegister;
+            Logger.LogActivity("Change date to: " + TestUsers[userId].username + "new date: " + newDateRegister);
         }
 
-        public static void AssignUserRole(string username, ushort newRole)
+        public static void AssignUserRole(int userId, ushort newRole)
         {
-            foreach (User givenUser in TestUsers)
-            {
-                if (givenUser.username.Equals(username))
-                {
-                    givenUser.roleId = newRole;
-                    Logger.LogActivity("Change role to: " + username + "new role: " + newRole);
-                    return;
-                }
-            }
-
-            throw new Exception("There is no User with that username in the base!");
+            TestUsers[userId].roleId = newRole;
+            Logger.LogActivity("Change role to: " + TestUsers[userId].username + "new role: " + newRole);
         }
     }
 }
