@@ -11,34 +11,45 @@ namespace UserLogin
             get; private set;
         }
 
-        public static UserRoles currentUserRoles
+        public static UserRoles currentUserRole
         {
             get; private set;
         }
 
-        public LoginValidation(string username, string password)
+        public static string currentUserUsername
+        {
+            get; private set;
+        }
+
+        // Delegate example
+        public delegate void ActionOnError(string errorMsg);
+
+        private ActionOnError error;
+
+        public LoginValidation(string username, string password, ActionOnError error)
         {
             this.username = username;
             this.password = password;
+            this.error = error;
         }
 
         public bool ValidateUserInput(ref User user)
         {
-            currentUserRoles = (UserRoles)user.roleId;
+            currentUserRole = (UserRoles)user.roleId;
 
             bool isEmptyUsername = this.username.Equals(String.Empty);
             if (isEmptyUsername || this.username.Length < 5)
             {
-                this.errorException = "The username must be at least 5 symbols long";
-                currentUserRoles = UserRoles.ANONYMOUS;
+                this.error("The username must be at least 5 symbols long");
+                currentUserRole = UserRoles.ANONYMOUS;
                 return false;
             }
 
             bool isEmptyPassword = this.password.Equals(String.Empty);
             if (isEmptyPassword || this.password.Length < 5)
             {
-                this.errorException = "The password must be at least 5 symbols long";
-                currentUserRoles = UserRoles.ANONYMOUS;
+                this.error( "The password must be at least 5 symbols long");
+                currentUserRole = UserRoles.ANONYMOUS;
                 return false;
             }
 
@@ -46,12 +57,14 @@ namespace UserLogin
 
             if (user == null)
             {
-                this.errorException = "The username and the password are different";
-                currentUserRoles = UserRoles.ANONYMOUS;
+                this.error("The username and the password are different");
+                currentUserRole = UserRoles.ANONYMOUS;
                 return false;
             }
 
-            currentUserRoles = (UserRoles)user.roleId;
+            currentUserRole = (UserRoles)user.roleId;
+            LoginValidation.currentUserUsername = user.username;
+
             return true;
         }
     }

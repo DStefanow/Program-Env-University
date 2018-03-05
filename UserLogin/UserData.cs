@@ -22,7 +22,6 @@ namespace UserLogin
             string username = "Dobromir";
             string password = "qwerty";
             string facNumber = "121215019";
-            int roleId = 0;
 
             // Create new user
             _testUsers = new User[3];
@@ -49,12 +48,11 @@ namespace UserLogin
 
         public static User IsUserPassCorrect(User user)
         {
-            for (int i = 0; i < TestUsers.Length; i++)
+            foreach (User givenUser in TestUsers)
             {
-                // Check if the username and password are in the TestUsers array
-                if (user.username == _testUsers[i].username && user.password == _testUsers[i].password)
+                if (user.username == givenUser.username && user.password == givenUser.password)
                 {
-                    return _testUsers[i];
+                    return givenUser;
                 }
             }
 
