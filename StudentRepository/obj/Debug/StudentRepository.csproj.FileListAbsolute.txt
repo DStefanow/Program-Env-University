@@ -1,7 +1,0 @@
-C:\Users\mopak\source\repos\UserLogin\Program-Env-University\StudentRepository\bin\Debug\StudentRepository.exe.config
-C:\Users\mopak\source\repos\UserLogin\Program-Env-University\StudentRepository\bin\Debug\StudentRepository.exe
-C:\Users\mopak\source\repos\UserLogin\Program-Env-University\StudentRepository\bin\Debug\StudentRepository.pdb
-C:\Users\mopak\source\repos\UserLogin\Program-Env-University\StudentRepository\obj\Debug\StudentRepository.csproj.CoreCompileInputs.cache
-C:\Users\mopak\source\repos\UserLogin\Program-Env-University\StudentRepository\obj\Debug\StudentRepository.exe
-C:\Users\mopak\source\repos\UserLogin\Program-Env-University\StudentRepository\obj\Debug\StudentRepository.pdb
-C:\Users\mopak\source\repos\UserLogin\Program-Env-University\StudentRepository\obj\Debug\StudentRepository.csprojResolveAssemblyReference.cache
