@@ -10,10 +10,14 @@ namespace UserLogin
     {
         private static List<string> currentSessionActivities = new List<string>();
 
-        public static void LogActivity(string activity)
+        public static Dictionary<Activities, string> activitiesDescription = new Dictionary<Activities, string>();
+
+        public static void LogActivity(Activities activityId, string activity)
         {
             string activityLine = DateTime.Now + " ; " + LoginValidation.currentUserUsername + " ; " +
                 LoginValidation.currentUserRole + " ; " + activity + "\r\n";
+
+            Logger.activitiesDescription.Add(activityId, activityLine);
 
             Logger.currentSessionActivities.Add(activityLine);
             

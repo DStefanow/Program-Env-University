@@ -66,7 +66,7 @@ namespace UserLogin
             LoginValidation.currentUserUsername = user.username;
 
             // Set activity in the Logger
-            Logger.LogActivity("Successful Login");
+            Logger.LogActivity((Activities)0, "logged");
 
             return true;
         }
