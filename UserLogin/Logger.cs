@@ -25,6 +25,11 @@ namespace UserLogin
             if (File.Exists(filePath))
             {
                 File.AppendAllText(filePath, activityLine);
+
+                if (activityId != 0)
+                {
+                    Console.WriteLine(activityLine);
+                }
             }
         }
 

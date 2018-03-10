@@ -66,7 +66,11 @@ namespace UserLogin
 
         public static User IsUserPassCorrect(User user)
         {
-            User searchedUser = TestUsers.FirstOrDefault(u => u.username == user.username && u.password == user.password);
+            // Het the user with the same username and password
+            User searchedUser = (from users in TestUsers
+                                  where (users.username.Equals(user.username) && 
+                                  users.password.Equals(user.password))
+                                  select users).FirstOrDefault();
             
             if (searchedUser != null)
             {
@@ -82,10 +86,16 @@ namespace UserLogin
             Logger.LogActivity((Activities)1, "Change date to: " + TestUsers[userId].username + " new date: " + newDateRegister);
         }
 
-        public static void AssignUserRole(int userId, ushort newRole)
+        public static void AssignUserRole(int userId, ushort newRoleId)
         {
-            TestUsers[userId].roleId = newRole;
-            Logger.LogActivity((Activities)2, "Change role to: " + TestUsers[userId].username + " new role: " + newRole);
+            if (Enum.IsDefined(typeof(UserRoles), (int)newRoleId))
+            {
+                TestUsers[userId].roleId = newRoleId;
+                Logger.LogActivity((Activities)2, "Change role to: " + TestUsers[userId].username + " new role: " + (UserRoles)newRoleId);
+                return;
+            }
+
+            throw new Exception("Invalid user role id!!");    
         }
 
         public static void ShowUserActivity()

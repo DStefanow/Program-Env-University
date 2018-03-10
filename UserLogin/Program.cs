@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace UserLogin
 {
@@ -77,11 +78,11 @@ namespace UserLogin
             Console.Write("Enter username: ");
             username = Console.ReadLine();
 
-            Console.Write("Enter new date: ");
-            DateTime.TryParse(Console.ReadLine(), out newDate);
-
+            Console.Write("Enter new date(dd-MM-yyyy): ");
+            
             try
             {
+                newDate = DateTime.ParseExact(Console.ReadLine(), "dd-MM-yyyy", CultureInfo.InvariantCulture);
                 UserData.SetUserActiveTo(allUsers[username], newDate);
             }
             catch (Exception e)
@@ -122,6 +123,5 @@ namespace UserLogin
         {
             Console.WriteLine("Error during registration: {0}", errorMsg);
         }
-        
     }
 }
