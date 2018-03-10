@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.IO;
 
 namespace StudentRepository
@@ -11,8 +10,7 @@ namespace StudentRepository
         private static int STUDENT_COUNTS = 5;
 
         public static List<Student> DefaultStudents = new List<Student>();
-
-
+        
         public static void AddSomeStudents()
         {
             string firstName = "Dobromir";
@@ -27,7 +25,7 @@ namespace StudentRepository
             {
                 Student student = new Student();
                 student.firstName = firstName + (char)(97 + i);
-                student.secondName = firstName + (char)(97 + i);
+                student.secondName = secondName + (char)(97 + i);
                 student.lastName = lastName + (char)(97 + i);
                 student.facility = facility[i];
                 student.specialization = specialization[i];
@@ -35,8 +33,8 @@ namespace StudentRepository
                 student.status = (DegreeStatus)(i % StudentData.STUDENT_COUNTS);
                 student.facNumber = facNumber + i;
                 student.lastCheck = lastCheck.AddDays(i);
-                student.course = (ushort)i;
-                student.stream = (ushort)i;
+                student.course = (ushort)(i + 1);
+                student.stream = (ushort)(i + 1);
                 student.group = (char)(i + 65);
 
                 StudentData.DefaultStudents.Add(student);
@@ -45,7 +43,18 @@ namespace StudentRepository
 
         public static Student GetStudent(string facNumber)
         {
-            Student student = StudentData.DefaultStudents.Find(s => s.facNumber == facNumber);
+            Student student = null;
+            try
+            {
+                // Get the student that has this fac. number
+                student = (from students in StudentData.DefaultStudents
+                                   where students.facNumber.Equals(facNumber)
+                                   select students).Last();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception: Invalid or missing fac. number");
+            }
 
             if (student != null)
             {
@@ -69,12 +78,21 @@ namespace StudentRepository
 
         public static void SaveCertificate(string facNumber)
         {
-            Student student = GetStudent(facNumber);
+            Student student = new Student();
+            try
+            {
+                student = GetStudent(facNumber);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception: {0}", e.Message);
+                return;
+            }
 
             string certificateText = PrepareSertificate(student);
-
-            string certificatePath = @"C:\Users\mopak\source\repos\UserLogin\Program-Env-University\StudentRepository\" +
-                    student.firstName + "-" + student.facNumber + ".txt";
+            
+            string certificatePath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + 
+                    @"\tmp\" + student.firstName + "-" + student.facNumber + ".txt";
 
             StreamWriter sw = File.CreateText(certificatePath);
 
@@ -82,12 +100,12 @@ namespace StudentRepository
             {
                 sw.Write(certificateText);
                 sw.Close();
+                Console.WriteLine(certificateText);
             }
             else
             {
                 throw new Exception("No such file: " + certificatePath);
             }
-
         }
     }
 }

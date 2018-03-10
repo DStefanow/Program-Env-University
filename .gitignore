@@ -1,6 +1,7 @@
 .vs
 .git
 *.sln
+tmp/
 bin/
 obj/
 activity.txt
