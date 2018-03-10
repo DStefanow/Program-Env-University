@@ -1,6 +1,6 @@
 ﻿namespace UserLogin
 {
-    enum Activities
+    public enum Activities
     {
         UserLogin, UserRoleChanged, UserActiveChanged
     }

@@ -93,5 +93,15 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StudentRepository\StudentRepository.csproj">
+      <Project>{d4ef29cc-a4c1-4d14-ac19-7aa964110bb5}</Project>
+      <Name>StudentRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UserLogin\UserLogin.csproj">
+      <Project>{d779f7a7-d5a9-4ecc-b5bb-807d745a6d94}</Project>
+      <Name>UserLogin</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

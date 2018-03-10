@@ -1,6 +1,6 @@
 ﻿namespace StudentRepository
 {
-    enum DegreeStatus
+    public enum DegreeStatus
     {
         CHECKED, NOT_CHECKED, FINISHED, INTERRUPTED
     }

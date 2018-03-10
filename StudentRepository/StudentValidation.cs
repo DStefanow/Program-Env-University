@@ -7,7 +7,7 @@ namespace StudentRepository
     {
         public Student GetStudentDataByUser(User user)
         {
-            return null;
+            return StudentData.GetStudent(user.facNumber);
         }
     }
 }

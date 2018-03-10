@@ -1,6 +1,6 @@
 ﻿namespace StudentRepository
 {
-    enum EducationDegree
+    public enum EducationDegree
     {
         MID_LEVEL, BACHELOR, MASTER, DOCTOR
     }
