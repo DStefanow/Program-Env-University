@@ -1,7 +1,7 @@
 .vs
 .git
-UserLogin.sln
-UserLogin/bin
-UserLogin/obj
-UserLogin/Properties/AssemblyInfo.cs
+*.sln
+bin/
+obj/
 activity.txt
+Dobromir*
