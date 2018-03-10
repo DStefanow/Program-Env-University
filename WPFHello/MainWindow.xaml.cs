@@ -27,7 +27,37 @@ namespace WPFHello
 
         private void btnHello_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Hello!! Username: " + usernameBox.Text);
+            if (usernameBox.Text.Length < 2)
+            {
+                MessageBox.Show("The username must be 2 symbols");
+            }
+            else
+            { 
+                MessageBox.Show("Hello!! Username: " + usernameBox.Text);
+            }
+        }
+
+        private void calculate_Click(object sender, RoutedEventArgs e)
+        {
+            uint number = uint.Parse(nBox.Text);
+            int power = int.Parse(powerBox.Text);
+
+            uint maskNumber = number;
+            ulong fac = 1;
+
+            while (maskNumber > 1)
+            {
+                fac *= maskNumber;
+                maskNumber--;
+            }
+
+            ulong powerRes = 1;
+            for (int i = 0; i < power; i++)
+            {
+                powerRes *= number;
+            }
+
+            MessageBox.Show("Results ready:\r\nFactorial: " + fac + " \r\nPower result: " + powerRes);
         }
     }
 }

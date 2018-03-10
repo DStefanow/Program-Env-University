@@ -7,11 +7,18 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button x:Name="btnHello" Content="Здрасти" HorizontalAlignment="Left" Margin="452,225,0,0" VerticalAlignment="Top" Width="75" Click="btnHello_Click"/>
-        <GroupBox x:Name="UserBox" Header="Потребител" HorizontalAlignment="Left" Height="100" Margin="265,155,0,0" VerticalAlignment="Top" Width="271">
+        <Button x:Name="btnHello" Content="Здрасти" HorizontalAlignment="Left" Margin="441,110,0,0" VerticalAlignment="Top" Width="75" Click="btnHello_Click"/>
+        <GroupBox x:Name="UserBox" Header="Потребител" HorizontalAlignment="Left" Height="100" Margin="254,40,0,0" VerticalAlignment="Top" Width="271">
             <TextBox x:Name="usernameBox" HorizontalAlignment="Left" Height="23" Margin="64,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         </GroupBox>
-        <Label x:Name="LabelUsername" Content="Име: " HorizontalAlignment="Left" Margin="281,182,0,0" VerticalAlignment="Top" Width="50" Height="26"/>
+        <Label x:Name="LabelUsername" Content="Име: " HorizontalAlignment="Left" Margin="270,67,0,0" VerticalAlignment="Top" Width="50" Height="26"/>
+        <GroupBox x:Name="mathBox" Header="Math examples" HorizontalAlignment="Left" Height="162" Margin="256,182,0,0" VerticalAlignment="Top" Width="271">
+            <Label x:Name="numberLabel" Content="Number: " HorizontalAlignment="Right" Height="28" Margin="0,25,190,0" VerticalAlignment="Top"/>
+        </GroupBox>
+        <Label x:Name="secondBox" Content="Power: " HorizontalAlignment="Left" Margin="274,253,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="powerBox" HorizontalAlignment="Left" Height="23" Margin="380,256,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="nBox" HorizontalAlignment="Left" Height="23" Margin="380,226,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="calculate" Content="Calculate" HorizontalAlignment="Left" Margin="425,305,0,0" VerticalAlignment="Top" Width="75" Click="calculate_Click"/>
 
     </Grid>
 </Window>
