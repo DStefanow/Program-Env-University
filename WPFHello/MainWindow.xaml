@@ -7,8 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Label x:Name="HelloLabel" Content="Hello WPF!!&#xD;&#xA;" HorizontalAlignment="Left" Margin="344,155,0,0" VerticalAlignment="Top" Height="85" Width="148" RenderTransformOrigin="0.465,0.259" FontSize="20"/>
-        <Button x:Name="btnHello" Content="Здрасти" HorizontalAlignment="Left" Margin="365,220,0,0" VerticalAlignment="Top" Width="75" Click="btnHello_Click"/>
+        <Button x:Name="btnHello" Content="Здрасти" HorizontalAlignment="Left" Margin="452,225,0,0" VerticalAlignment="Top" Width="75" Click="btnHello_Click"/>
+        <GroupBox x:Name="UserBox" Header="Потребител" HorizontalAlignment="Left" Height="100" Margin="265,155,0,0" VerticalAlignment="Top" Width="271">
+            <TextBox x:Name="usernameBox" HorizontalAlignment="Left" Height="23" Margin="64,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        </GroupBox>
+        <Label x:Name="LabelUsername" Content="Име: " HorizontalAlignment="Left" Margin="281,182,0,0" VerticalAlignment="Top" Width="50" Height="26"/>
 
     </Grid>
 </Window>

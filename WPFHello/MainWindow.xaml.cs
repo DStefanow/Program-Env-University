@@ -27,7 +27,7 @@ namespace WPFHello
 
         private void btnHello_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Hello!! This is your first program on WPF");
+            MessageBox.Show("Hello!! Username: " + usernameBox.Text);
         }
     }
 }
