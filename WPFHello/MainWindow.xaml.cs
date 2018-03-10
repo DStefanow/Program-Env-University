@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,18 @@ namespace WPFHello
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        public void MainWindow_Closing(object sender, CancelEventArgs e)
+        {
+            string closingMsg = "Are you sure you want to close the window?";
+            MessageBoxResult result = MessageBox.Show(closingMsg, "Closing program", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+
+            // Prevent closing if user wants
+            if (result == MessageBoxResult.No)
+            {
+                e.Cancel = true;
+            }
         }
 
         private void btnHello_Click(object sender, RoutedEventArgs e)
