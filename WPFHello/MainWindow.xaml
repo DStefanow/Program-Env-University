@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Label x:Name="HelloLabel" Content="Hello WPF!!&#xD;&#xA;" HorizontalAlignment="Left" Margin="344,155,0,0" VerticalAlignment="Top" Height="85" Width="148" RenderTransformOrigin="0.465,0.259" FontSize="20"/>
+        <Button x:Name="btnHello" Content="Здрасти" HorizontalAlignment="Left" Margin="365,220,0,0" VerticalAlignment="Top" Width="75" Click="btnHello_Click"/>
+
     </Grid>
 </Window>
