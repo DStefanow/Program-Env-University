@@ -5,7 +5,7 @@ using System.IO;
 
 namespace StudentRepository
 {
-    class StudentData
+    public class StudentData
     {
         private static int STUDENT_COUNTS = 5;
 

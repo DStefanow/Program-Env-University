@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace UserLogin
 {
-    static class UserData
+    public static class UserData
     {
         public static List<User> TestUsers
         {

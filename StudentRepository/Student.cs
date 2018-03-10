@@ -2,7 +2,7 @@
 
 namespace StudentRepository
 {
-    class Student
+    public class Student
     {
         public string firstName;
         public string secondName;

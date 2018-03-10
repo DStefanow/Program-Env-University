@@ -2,7 +2,7 @@
 
 namespace UserLogin
 {
-    class LoginValidation
+    public class LoginValidation
     {
         private string username;
         private string password;
