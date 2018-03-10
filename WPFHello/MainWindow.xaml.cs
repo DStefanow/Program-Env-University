@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace StudentInfoSystem
+namespace WPFHello
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -23,7 +23,6 @@ namespace StudentInfoSystem
         public MainWindow()
         {
             InitializeComponent();
-            this.Title = "Студентска информацонна система";
         }
     }
 }
