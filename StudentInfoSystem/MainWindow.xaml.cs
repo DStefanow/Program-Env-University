@@ -84,5 +84,15 @@ namespace StudentInfoSystem
             streamBox.IsEnabled = true;
             groupBox.IsEnabled = true;
         }
+
+        private void btnGetStudentInfo_Click(object sender, RoutedEventArgs e)
+        {
+            /** TODO: 
+             * 1. Get student fac. Number from facNumberBox
+             * 2. Get the info for the student from created already methods
+             * 3. Change text boxes with the info
+             * 4. Change combo boxes with the given indexes
+            */
+        }
     }
 }

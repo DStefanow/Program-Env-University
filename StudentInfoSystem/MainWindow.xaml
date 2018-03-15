@@ -69,6 +69,6 @@
         <Button x:Name="clearBtn" Content="Изчисти" HorizontalAlignment="Left"
                 Margin="109,170,0,0" Grid.Row="1" VerticalAlignment="Top" Width="130" Click="clearBtn_Click"/>
         <Button x:Name="btnGetStudentInfo" Content="Покажи информация" HorizontalAlignment="Left"
-                Margin="109,205,0,0" Grid.Row="1" VerticalAlignment="Top" Width="130"/>
+                Margin="109,205,0,0" Grid.Row="1" VerticalAlignment="Top" Width="130" Click="btnGetStudentInfo_Click"/>
     </Grid>
 </Window>
