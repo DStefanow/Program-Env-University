@@ -25,5 +25,20 @@ namespace StudentInfoSystem
             InitializeComponent();
             this.Title = "Студентска информацонна система";
         }
+
+        private void clearBtn_Click(object sender, RoutedEventArgs e)
+        {
+            // Clear personal info
+            firstNameBox.Clear();
+            secondNameBox.Clear();
+            lastNameBox.Clear();
+
+            // Clear student info
+            facilityBox.Clear();
+            specializationBox.Clear();
+            facNumberBox.Clear();
+            streamBox.Clear();
+            groupBox.Clear();
+        }
     }
 }
