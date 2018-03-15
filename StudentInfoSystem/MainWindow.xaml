@@ -62,9 +62,13 @@
                  TextWrapping="Wrap" VerticalAlignment="Top" Width="50" />
             </Grid>
         </GroupBox>
-        <Button x:Name="btnMakeDisable" Content="Направи неактивен" HorizontalAlignment="Left" Margin="256,170,0,0" Grid.Row="1" VerticalAlignment="Top" Width="130"/>
-        <Button x:Name="btnMakeEnable" Content="Направи активен" HorizontalAlignment="Left" Margin="255,205,0,0" Grid.Row="1" VerticalAlignment="Top" Width="130"/>
-        <Button x:Name="clearBtn" Content="Изчисти" HorizontalAlignment="Left" Margin="109,170,0,0" Grid.Row="1" VerticalAlignment="Top" Width="130" Click="clearBtn_Click"/>
-        <Button x:Name="btnGetStudentInfo" Content="Покажи информация" HorizontalAlignment="Left" Margin="109,205,0,0" Grid.Row="1" VerticalAlignment="Top" Width="130"/>
+        <Button x:Name="btnMakeDisable" Content="Направи неактивен" HorizontalAlignment="Left" 
+                Margin="256,170,0,0" Grid.Row="1" VerticalAlignment="Top" Width="130" Click="btnMakeDisable_Click"/>
+        <Button x:Name="btnMakeEnable" Content="Направи активен" HorizontalAlignment="Left"
+                Margin="255,205,0,0" Grid.Row="1" VerticalAlignment="Top" Width="130" Click="btnMakeEnable_Click"/>
+        <Button x:Name="clearBtn" Content="Изчисти" HorizontalAlignment="Left"
+                Margin="109,170,0,0" Grid.Row="1" VerticalAlignment="Top" Width="130" Click="clearBtn_Click"/>
+        <Button x:Name="btnGetStudentInfo" Content="Покажи информация" HorizontalAlignment="Left"
+                Margin="109,205,0,0" Grid.Row="1" VerticalAlignment="Top" Width="130"/>
     </Grid>
 </Window>
