@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudentInfoSystem"
         mc:Ignorable="d"
-        Title="Студентска информационна система" Height="550" Width="500">
+        Title="Студентска информационна система" Height="550" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="293*"/>
@@ -23,6 +23,25 @@
                  TextWrapping="Wrap" VerticalAlignment="Top" Width="217" />
                 <TextBox x:Name="lastNameBox" HorizontalAlignment="Left" Height="23" Margin="80,72,30,0"
                  TextWrapping="Wrap" VerticalAlignment="Top" Width="217" />
+            </Grid>
+        </GroupBox>
+        <GroupBox x:Name="userInfo" Header="Login user" HorizontalAlignment="Left" 
+                  Height="130" Width="350" Margin="425,45,0,0" VerticalAlignment="Top">
+            <Grid>
+                <Label Content="Username:" Margin="35,10,0,0" 
+                       VerticalAlignment="Top" HorizontalAlignment="Left" Height="30"/>
+                <Label Content="Password:" Margin="35,40,0,0"
+                       VerticalAlignment="Top" HorizontalAlignment="Left" Height="30"/>
+                <TextBox x:Name="usernameBox" HorizontalAlignment="Left" Height="23" Margin="120,12,0,0"
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="200" />
+                <TextBox x:Name="passwordBox" HorizontalAlignment="Left" Height="23" Margin="120,42,0,0"
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="200" />
+                <Button x:Name="loginBtn" Content="Login" HorizontalAlignment="Left" Margin="145,80,0,0"
+                        VerticalAlignment="Top" Width="75" Click="loginBtn_Click"/>
+                <Button x:Name="logoutBtn" Content="Logout" HorizontalAlignment="Left" Margin="245,80,0,0"
+                        VerticalAlignment="Top" Width="75" Click="logoutBtn_Click"/>
+                <Button x:Name="addMarkBtn" Content="Add Mark" HorizontalAlignment="Left" Margin="50,80,0,0"
+                        VerticalAlignment="Top" Width="75" Click="addMarkBtn_Click"/>
             </Grid>
         </GroupBox>
         <GroupBox x:Name="studentInfo" Header="Студентска информация" HorizontalAlignment="Left" 

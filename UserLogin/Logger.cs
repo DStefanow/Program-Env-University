@@ -14,11 +14,19 @@ namespace UserLogin
 
         public static void LogActivity(Activities activityId, string activity)
         {
+
             string activityLine = DateTime.Now + " ; " + LoginValidation.currentUserUsername + " ; " +
                 LoginValidation.currentUserRole + " ; " + activity + "\r\n";
 
-            Logger.activitiesDescription.Add(activityId, activityLine);
-
+            try
+            {
+                Logger.activitiesDescription.Add(activityId, activityLine);
+            }
+            catch (Exception e)
+            {
+                return;
+            }
+            
             Logger.currentSessionActivities.Add(activityLine);
             
             string filePath = @"..\..\..\activity.txt";
