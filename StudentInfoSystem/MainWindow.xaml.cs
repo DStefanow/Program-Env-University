@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using StudentRepository;
+using UserLogin;
 
 namespace StudentInfoSystem
 {
@@ -24,6 +14,24 @@ namespace StudentInfoSystem
         {
             InitializeComponent();
             this.Title = "Студентска информацонна система";
+
+            educationDegreeBox.SelectedIndex = 0;
+            foreach (EducationDegree degree in Enum.GetValues(typeof(EducationDegree)))
+            {
+                educationDegreeBox.Items.Add(degree);
+            }
+
+            degreeStatusBox.SelectedIndex = 0;
+            foreach (DegreeStatus degreeStatus in Enum.GetValues(typeof(DegreeStatus)))
+            {
+                degreeStatusBox.Items.Add(degreeStatus);
+            }
+
+            courseBox.SelectedIndex = 0;
+            for (ushort i = 1; i < 5; i++)
+            {
+                courseBox.Items.Add(i);
+            }
         }
 
         private void clearBtn_Click(object sender, RoutedEventArgs e)
