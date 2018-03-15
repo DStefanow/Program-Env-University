@@ -87,12 +87,27 @@ namespace StudentInfoSystem
 
         private void btnGetStudentInfo_Click(object sender, RoutedEventArgs e)
         {
-            /** TODO: 
-             * 1. Get student fac. Number from facNumberBox
-             * 2. Get the info for the student from created already methods
-             * 3. Change text boxes with the info
-             * 4. Change combo boxes with the given indexes
-            */
+            // Add students in the list
+            StudentData.AddSomeStudents();
+
+            string facNumber = facNumberBox.Text;
+
+            if (facNumber == "")
+            {
+                MessageBox.Show("Please enter a faculity number");
+                return;
+            }
+
+            try
+            {
+                Student student = StudentData.GetStudent(facNumber);
+            }
+            catch (Exception exp)
+            {
+                MessageBox.Show(exp.Message);
+            }
+
+
         }
     }
 }
