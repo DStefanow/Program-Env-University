@@ -7,8 +7,32 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ExpenseIt - View Page">
-
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="270" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="75" />
+            <RowDefinition Height="75" />
+            <RowDefinition Height="250"/>
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <ImageBrush ImageSource="watermark.jpeg" />
+        </Grid.Background>
+        <Label Grid.Column="1" Grid.Row="0" Padding="5,10,0,0" Foreground="#2062cc" FontSize="25">Expense Report For:</Label>
+        <Label Grid.Column="1" Grid.Row="1" FontSize="20" Padding="0,30,0,0">Name:</Label>
+        <Label Grid.Column="1" Grid.Row="2" FontSize="20">Department:</Label>
+        <Border Height="35" VerticalAlignment="Stretch" Background="#4E87D4" Grid.Row="3" Margin="0,0,30,220" Grid.Column="1">
+            <Grid>
+                <Grid>
+                    <Label VerticalAlignment="Center" Foreground="White">Expense Type</Label>
+                </Grid>
+                <Grid>
+                    <Label VerticalAlignment="Center" Foreground="White" Margin="150,0,0,0">Names</Label>
+                </Grid>
+            </Grid>
+        </Border>
     </Grid>
 </Page>

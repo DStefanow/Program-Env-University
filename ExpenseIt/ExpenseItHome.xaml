@@ -22,7 +22,7 @@
             <ImageBrush ImageSource="watermark.jpeg" />
         </Grid.Background>
         <!-- People list -->
-        <Label Grid.Column="1">View Expense Report</Label>
+        <Label Grid.Column="1" FontSize="15">View Expense Report</Label>
         <Border Height="35" Background="#4E87D4" Grid.Column="1" Grid.Row="1">
             <Label VerticalAlignment="Center" Foreground="White">Names</Label>
         </Border>
