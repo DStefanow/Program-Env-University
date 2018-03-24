@@ -30,7 +30,8 @@
                     <Label VerticalAlignment="Center" Foreground="White">Expense Type</Label>
                 </Grid>
                 <Grid>
-                    <Label VerticalAlignment="Center" Foreground="White" Margin="150,0,0,0">Names</Label>
+                    <Label VerticalAlignment="Center" Foreground="White" Margin="150,0,0,0" 
+                           Style="{StaticResource listHeaderTextStyles}">Names</Label>
                 </Grid>
             </Grid>
         </Border>

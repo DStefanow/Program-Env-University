@@ -27,7 +27,17 @@
             <ImageBrush ImageSource="watermark.jpeg" />
         </Grid.Background>
         <!-- People list -->
-        <Label Grid.Column="1" FontSize="15" Content="{StaticResource strTitle}"/>
+        <Label Grid.Column="1" Content="{StaticResource strTitle}">
+            <Label.Resources>
+                <Style TargetType="Label">
+                    <Setter Property="Label.FontSize" Value="20"></Setter>
+                    <Setter Property="Label.VerticalAlignment" Value="Center"></Setter>
+                    <Setter Property="Label.FontFamily" Value="Trebuchet MS"></Setter>
+                    <Setter Property="Label.FontWeight" Value="Bold"></Setter>
+                    <Setter Property="Label.Foreground" Value="#0666cc"></Setter>
+                </Style>
+            </Label.Resources>
+        </Label>
         <Border Height="35" Background="#4E87D4" Grid.Column="1" Grid.Row="1">
             <Label VerticalAlignment="Center" Foreground="White">Names</Label>
         </Border>

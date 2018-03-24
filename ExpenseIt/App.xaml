@@ -4,6 +4,12 @@
              xmlns:local="clr-namespace:ExpenseIt"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style TargetType="Label"
+               x:Key="listHeaderTextStyles">
+            <Setter Property="Label.VerticalAlignment" Value="Top"></Setter>
+            <Setter Property="Label.HorizontalAlignment" Value="Left"></Setter>
+            <Setter Property="Label.FontWeight" Value="Bold"></Setter>
+            <Setter Property="Label.Margin" Value="0,0,0,5"></Setter>
+        </Style>
     </Application.Resources>
 </Application>
