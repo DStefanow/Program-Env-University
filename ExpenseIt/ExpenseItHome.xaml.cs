@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace ExpenseIt
 {
-    /// <summary>
-    /// Interaction logic for ExpenseItHome.xaml
-    /// </summary>
     public partial class ExpenseItHome : Page
     {
         public ExpenseItHome()
@@ -40,6 +37,12 @@ namespace ExpenseIt
         {
             string greetingMsg = (peopleListBox.SelectedItem as ListBoxItem).Content.ToString();
             MessageBox.Show("Hi, " + greetingMsg);
+        }
+
+        private void ViewInfo_Click(object sender, RoutedEventArgs e)
+        {
+            ExpenseReportPage expenseReportPage = new ExpenseReportPage();
+            this.NavigationService.Navigate(expenseReportPage);
         }
     }
 }
