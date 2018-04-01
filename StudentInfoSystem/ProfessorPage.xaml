@@ -1,0 +1,25 @@
+﻿<Page x:Class="StudentInfoSystem.ProfessorPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:StudentInfoSystem"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="600"
+      Title="ProfessorPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <GroupBox x:Name="students" Grid.Row="0">
+            <ListBox Name="studentsList"></ListBox>
+        </GroupBox>
+        <Grid Grid.Row="1">
+            <TextBox x:Name="studentFacNumber" HorizontalAlignment="Left" Height="23"
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="217" />
+            <Button x:Name="getStudent" Content="Get Student" HorizontalAlignment="Left"
+                        VerticalAlignment="Top" Width="75" Margin="0,30,0,0" Click="getStudent_Click" />
+        </Grid>
+    </Grid>
+</Page>

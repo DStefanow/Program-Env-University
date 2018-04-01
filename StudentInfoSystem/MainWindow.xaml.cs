@@ -1,5 +1,6 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
+using System.Windows.Navigation;
+using System;
 using StudentRepository;
 using UserLogin;
 
@@ -197,6 +198,9 @@ namespace StudentInfoSystem
                     btnGetStudentInfo.Visibility = Visibility.Visible;
                     loginBtn.IsEnabled = false;
                     logoutBtn.IsEnabled = true;
+                    NavigationWindow profWindow = new NavigationWindow();
+                    profWindow.Content = new ProfessorPage();
+                    profWindow.Show();
                 }
             }
 
@@ -220,11 +224,6 @@ namespace StudentInfoSystem
                 clearAllTextBoxes();
                 disableAllBoxes();
             }
-        }
-
-        private void addMarkBtn_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
