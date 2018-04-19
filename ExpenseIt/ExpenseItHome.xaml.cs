@@ -1,12 +1,30 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 
+
 namespace ExpenseIt
 {
-    public partial class ExpenseItHome : Page
+    public partial class ExpenseItHome : Page, INotifyPropertyChanged
     {
-        public DateTime LastChecked { get; set; }
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private DateTime lastChecked;
+
+        public DateTime LastChecked
+        {
+            get { return lastChecked; }
+            set
+            {
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged(this, new PropertyChangedEventArgs("LastChecked"));
+                    lastChecked = value;
+                }
+            }
+        }
 
         public ExpenseItHome()
         {
@@ -29,6 +47,11 @@ namespace ExpenseIt
 
             ExpenseReportPage expenseReportPage = new ExpenseReportPage(this.peopleListBox.SelectedItem);
             this.NavigationService.Navigate(expenseReportPage);
+        }
+
+        private void peopleListBox_SelectionChanged_1(object sender, RoutedEventArgs e)
+        {
+            LastChecked = DateTime.Now; 
         }
     }
 }

@@ -76,7 +76,7 @@
         <Border Height="35" Background="#4E87D4" Grid.Column="1" Grid.Row="1">
             <Label VerticalAlignment="Center" Foreground="White">Names</Label>
         </Border>
-        <ListBox Name="peopleListBox" Grid.Column="1" Grid.Row="2" 
+        <ListBox Name="peopleListBox" Grid.Column="1" Grid.Row="2" SelectionChanged="peopleListBox_SelectionChanged_1"
                  ItemsSource="{Binding Source={StaticResource ExpenseDataSource}, XPath=Person}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
