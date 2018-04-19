@@ -49,7 +49,7 @@
             <ListBoxItem>Theo</ListBoxItem>
         </ListBox>
         <!-- View Report Button -->
-        <Button Content="View" Margin="0,10,0,0" Width="100" Height="25" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="4"
+        <Button Content="{Binding ElementName=peopleListBox, Path=SelectedItem.Content}" Margin="0,10,0,0" Width="100" Height="25" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="4"
                 Click="ViewInfo_Click"/>
         <!-- Greeting Button -->
         <Button Content="Greeting" Margin="0,10,0,0" Width="100" Height="25" HorizontalAlignment="Left" Grid.Column="1" Grid.Row="4"
