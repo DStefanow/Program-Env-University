@@ -78,6 +78,11 @@
         </Border>
         <ListBox Name="peopleListBox" Grid.Column="1" Grid.Row="2" 
                  ItemsSource="{Binding Source={StaticResource ExpenseDataSource}, XPath=Person}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding XPath=@Name}"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
         <Label Grid.Column="0" Grid.Row="3" Content="{Binding Path=LastChecked}"></Label>
         <!-- View Report Button -->
