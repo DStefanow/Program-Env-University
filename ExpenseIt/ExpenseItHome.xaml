@@ -79,6 +79,7 @@
         <ListBox Name="peopleListBox" Grid.Column="1" Grid.Row="2" 
                  ItemsSource="{Binding Source={StaticResource ExpenseDataSource}, XPath=Person}">
         </ListBox>
+        <Label Grid.Column="0" Grid.Row="3" Content="{Binding Path=LastChecked}"></Label>
         <!-- View Report Button -->
         <Button Content="{Binding ElementName=peopleListBox, Path=SelectedItem.Attributes[Name]}" Margin="0,10,0,0" Width="100" Height="25" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="4"
                 Click="ViewInfo_Click"/>
