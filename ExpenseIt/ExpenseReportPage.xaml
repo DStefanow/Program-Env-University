@@ -23,18 +23,13 @@
         </Grid.Background>
         <Label Grid.Column="1" Grid.Row="0" Padding="5,10,0,0" Foreground="#2062cc" FontSize="25">Expense Report For:</Label>
         <Label Grid.Column="1" Grid.Row="1" FontSize="20" Padding="0,30,0,0" Content="{Binding XPath=@Name}"/>
-        <Label Grid.Column="1" Grid.Row="2" FontSize="20" Content="{Binding XPath=@Department}" />
-        <Label Content="{Binding XPath=@Department}" />
-        <Border Height="35" VerticalAlignment="Stretch" Background="#4E87D4" Grid.Row="3" Margin="0,0,30,220" Grid.Column="1">
-            <Grid>
-                <Grid>
-                    <Label VerticalAlignment="Center" Foreground="White">Expense Type</Label>
-                </Grid>
-                <Grid>
-                    <Label VerticalAlignment="Center" Foreground="White" Margin="150,0,0,0" 
-                           Style="{StaticResource listHeaderTextStyles}">Names</Label>
-                </Grid>
-            </Grid>
-        </Border>
+        <Label Grid.Column="1" Grid.Row="1" FontSize="20" Content="{Binding XPath=@Department}" />
+        <DataGrid Grid.Column="1" Grid.Row="2" ItemsSource="{Binding XPath=Expense}" 
+                  AutoGenerateColumns="False" RowHeaderWidth="0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Expense Type" Binding="{Binding XPath=@ExpenseType}" />
+                <DataGridTextColumn Header="Amount" Binding="{Binding XPath=@ExpenseAmount}" />
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>
