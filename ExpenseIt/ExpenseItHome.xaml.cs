@@ -8,17 +8,6 @@ namespace ExpenseIt
         public ExpenseItHome()
         {
             InitializeComponent();
-
-            // Add people from the code
-            ListBoxItem james = new ListBoxItem();
-            james.Content = "James";
-            peopleListBox.Items.Add(james);
-
-            ListBoxItem david = new ListBoxItem();
-            david.Content = "David";
-            peopleListBox.Items.Add(david);
-
-            peopleListBox.SelectedItem = james;
         }
 
         private void GreetingByName_Click(object sender, RoutedEventArgs e)

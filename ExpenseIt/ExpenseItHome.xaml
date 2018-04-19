@@ -77,11 +77,6 @@
             <Label VerticalAlignment="Center" Foreground="White">Names</Label>
         </Border>
         <ListBox Name="peopleListBox" Grid.Column="1" Grid.Row="2">
-            <ListBoxItem>Mike</ListBoxItem>
-            <ListBoxItem>Lisa</ListBoxItem>
-            <ListBoxItem>John</ListBoxItem>
-            <ListBoxItem>Mary</ListBoxItem>
-            <ListBoxItem>Theo</ListBoxItem>
         </ListBox>
         <!-- View Report Button -->
         <Button Content="{Binding ElementName=peopleListBox, Path=SelectedItem.Content}" Margin="0,10,0,0" Width="100" Height="25" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="4"
