@@ -13,6 +13,41 @@
         <sys:String x:Key="strTitle">View Expense Report</sys:String>
     </Page.Resources>
     <Grid Margin="10,0,10,10">
+        <Grid.Resources>
+            <!-- Expense Report Data -->
+            <XmlDataProvider x:Key="ExpenseDataSource" XPath="Expenses">
+                <x:XData>
+                    <Expenses xmlns="">
+                        <Person Name="Mike" Department="Legal">
+                            <Expense ExpenseType="Lunch" ExpenseAmount="50" />
+                            <Expense ExpenseType="Transport" ExpenseAmount="50" />
+                        </Person>
+                        <Person Name="Lisa" Department="Marketing">
+                            <Expense ExpenseType="Document printing" ExpenseAmount="50"/>
+                            <Expense ExpenseType="Gift" ExpenseAmount="125" />
+                        </Person>
+                        <Person Name="John" Department="Engineering">
+                            <Expense ExpenseType="Magazine subscription" ExpenseAmount="50"/>
+                            <Expense ExpenseType="New machine" ExpenseAmount="600" />
+                            <Expense ExpenseType="Software" ExpenseAmount="500" />
+                        </Person>
+                        <Person Name="Mary" Department="Finance">
+                            <Expense ExpenseType="Dinner" ExpenseAmount="100" />
+                        </Person>
+                        <Person Name="Theo" Department="Marketing">
+                            <Expense ExpenseType="Dinner" ExpenseAmount="100" />
+                        </Person>
+                        <Person Name="James" Department="Programming">
+                            <Expense ExpenseType="Dinner" ExpenseAmount="125" />
+                        </Person>
+                        <Person Name="David" Department="Transport">
+                            <Expense ExpenseType="Dinner" ExpenseAmount="150" />
+                            <Expense ExpenseType="Transport" ExpenseAmount="90" />
+                        </Person>
+                    </Expenses>
+                </x:XData>
+            </XmlDataProvider>
+        </Grid.Resources>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition Width="230" />
