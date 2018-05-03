@@ -9,9 +9,12 @@ namespace StudentInfoSystem
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
     public partial class MainWindow : Window
     {
         public User user;
+
+        public Student student { get; set; }
 
         public MainWindow()
         {
@@ -40,7 +43,7 @@ namespace StudentInfoSystem
             {
                 courseBox.Items.Add(i);
             }
-
+            
             logoutBtn.IsEnabled = false;
         }
 
@@ -61,7 +64,6 @@ namespace StudentInfoSystem
             degreeStatusBox.SelectedIndex = 0;
             courseBox.SelectedIndex = 0;
             facilityBox.Clear();
-            specializationBox.Clear();
             facNumberBox.Clear();
             streamBox.Clear();
             groupBox.Clear();
@@ -117,10 +119,11 @@ namespace StudentInfoSystem
         {
             string facNumber = facNumberBox.Text;
             
-            GetStudentInfoByFacNumber(facNumber);
+            this.student = GetStudentInfoByFacNumber(facNumber);
+            this.DataContext = this.student;
         }
 
-        private void  GetStudentInfoByFacNumber(string facNumber)
+        private Student GetStudentInfoByFacNumber(string facNumber)
         {
             // Add students in the list
             StudentData.AddSomeStudents();
@@ -128,7 +131,7 @@ namespace StudentInfoSystem
             if (facNumber == "")
             {
                 MessageBox.Show("Please enter a faculity number");
-                return;
+                return null;
             }
 
             Student student = null;
@@ -139,25 +142,26 @@ namespace StudentInfoSystem
             catch (Exception exp)
             {
                 MessageBox.Show(exp.Message);
-                return;
+                return student=StudentData.GetStudent("1212150190");
             }
 
-            AddStudentInfo(student);
+            return student;
+            //AddStudentInfo(student);
         }
 
         private void AddStudentInfo(Student student)
-        {
+        {   
             // Clear personal info
             firstNameBox.Text = student.firstName;
             secondNameBox.Text = student.secondName;
             lastNameBox.Text = student.lastName;
-
+            
             // Clear student info
             educationDegreeBox.SelectedIndex = (int)(EducationDegree)student.educationDegree;
             degreeStatusBox.SelectedIndex = (int)(DegreeStatus)student.status;
             courseBox.SelectedIndex = student.course;
             facilityBox.Text = student.facility;
-            specializationBox.Text = student.specialization;
+            //specializationBox.Text = student.specialization;
             facNumberBox.Text = student.facNumber;
             streamBox.Text = student.stream.ToString();
             groupBox.Text = student.group.ToString();

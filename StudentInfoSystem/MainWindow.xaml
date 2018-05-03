@@ -7,6 +7,20 @@
         mc:Ignorable="d"
         Title="Студентска информационна система" Height="600" Width="1200">
     <Grid>
+        <Grid.Resources>
+            <XmlDataProvider x:Key="SpecializationDataSource" XPath="Specializations">
+                <x:XData>
+                    <Specializations xmlns="">
+                        <Specialization Name="ComputerScience" Content="Computer Science"></Specialization>
+                        <Specialization Name="Engineer" Content="Engineer"></Specialization>
+                        <Specialization Name="Doctor" Content="Doctor"></Specialization>
+                        <Specialization Name="Chemist" Content="Chemist"></Specialization>
+                        <Specialization Name="BusDriver" Content="Bus Driver"></Specialization>
+                        <Specialization Name="Architect" Content="Architect"></Specialization>
+                    </Specializations>
+                </x:XData>
+            </XmlDataProvider>
+        </Grid.Resources>
         <Grid.RowDefinitions>
             <RowDefinition Height="293*"/>
             <RowDefinition Height="276*"/>
@@ -26,15 +40,15 @@
             <GroupBox x:Name="personalInfo" Header="Лични данни" HorizontalAlignment="Left" 
                   Height="130" Width="370" Margin="50,45,0,0" VerticalAlignment="Top">
                 <Grid>
-                    <Label Content="Име:" Margin="35,10,30,0" VerticalAlignment="Top" Height="30"/>
+                    <Label Content="Име: " Margin="35,10,30,0" VerticalAlignment="Top" Height="30"/>
                     <Label Content="Презиме:" Margin="10,40,30,0" VerticalAlignment="Top" Height="30"/>
                     <Label Content="Фамилия:" Margin="10,70,30,0" VerticalAlignment="Top" Height="30"/>
                     <TextBox x:Name="firstNameBox" HorizontalAlignment="Left" Height="23" Margin="80,12,30,0"
-                 TextWrapping="Wrap" VerticalAlignment="Top" Width="217" />
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="217" Text="{Binding Path=firstName}" />
                     <TextBox x:Name="secondNameBox" HorizontalAlignment="Left" Height="23" Margin="80,42,30,0"
-                 TextWrapping="Wrap" VerticalAlignment="Top" Width="217" />
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="217" Text="{Binding Path=firstName}"/>
                     <TextBox x:Name="lastNameBox" HorizontalAlignment="Left" Height="23" Margin="80,72,30,0"
-                 TextWrapping="Wrap" VerticalAlignment="Top" Width="217" />
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="217" Text="{Binding Path=firstName}"/>
                 </Grid>
             </GroupBox>
             <GroupBox x:Name="userInfo" Header="Login user" HorizontalAlignment="Left" 
@@ -60,7 +74,7 @@
                   Height="240" Margin="50,180,0,0" VerticalAlignment="Top" Width="371" Grid.RowSpan="2">
                 <Grid>
                     <Label Content="Факултет:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"
-                       HorizontalContentAlignment="Right" Height="30" Width="90"/>
+                       HorizontalContentAlignment="Right" Height="30" Width="90" />
                     <Label Content="Специалност:" HorizontalAlignment="Left" Margin="10,40,0,0" VerticalAlignment="Top" 
                        HorizontalContentAlignment="Right" Height="30" Width="90"/>
                     <Label Content="ОКС:" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="10,70,0,0" 
@@ -76,21 +90,28 @@
                     <Label Content="Група:" HorizontalAlignment="Left" HorizontalContentAlignment="Right" Margin="180,70,0,0"  
                        VerticalAlignment="Top" Height="30" Width="90"/>
                     <TextBox x:Name="facilityBox" HorizontalAlignment="Left" Height="23" Margin="110,12,0,0"
-                 TextWrapping="Wrap" VerticalAlignment="Top" Width="100" />
-                    <TextBox x:Name="specializationBox" HorizontalAlignment="Left" Height="23" Margin="110,42,0,0"
-                 TextWrapping="Wrap" VerticalAlignment="Top" Width="100" />
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Text="{Binding Path=facility}"/>
+                    <ComboBox Name="specializationBox" HorizontalAlignment="Left" Height="23" Margin="110,42,0,0"
+                 VerticalAlignment="Top" Width="100" ItemsSource="{Binding Source={StaticResource SpecializationDataSource}, 
+                        XPath=Specialization}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <Label Content="{Binding XPath=@Content}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
                     <ComboBox x:Name="educationDegreeBox" HorizontalAlignment="Left" Height="23" Margin="110,72,0,0"
                  VerticalAlignment="Top" Width="100"/>
                     <ComboBox x:Name="degreeStatusBox" HorizontalAlignment="Left" Height="23" Margin="110,102,0,0"
                  VerticalAlignment="Top" Width="100"/>
                     <TextBox x:Name="facNumberBox" HorizontalAlignment="Left" Height="23" Margin="110,132,0,0"
-                 TextWrapping="Wrap" VerticalAlignment="Top" Width="100" />
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Text="{Binding Path=facNumber}"/>
                     <ComboBox x:Name="courseBox" HorizontalAlignment="Left" Height="23" Margin="280,12,0,0"
                  VerticalAlignment="Top" Width="50"/>
                     <TextBox x:Name="streamBox" HorizontalAlignment="Left" Height="23" Margin="280,42,0,0"
-                 TextWrapping="Wrap" VerticalAlignment="Top" Width="50" />
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Text="{Binding Path=stream}" />
                     <TextBox x:Name="groupBox" HorizontalAlignment="Left" Height="23" Margin="280,72,0,0"
-                 TextWrapping="Wrap" VerticalAlignment="Top" Width="50" />
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Text="{Binding Path=group}" />
                 </Grid>
             </GroupBox>
             <Button x:Name="btnMakeDisable" Content="Направи неактивен" HorizontalAlignment="Left" 
