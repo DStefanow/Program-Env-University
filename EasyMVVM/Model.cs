@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 
 namespace EasyMVVM
 {
-    class Model
+    public class Model
     {
         ObservableCollection<string> _data = new ObservableCollection<string>();
 

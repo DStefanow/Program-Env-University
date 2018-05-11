@@ -5,7 +5,7 @@ using System.Windows;
 
 namespace EasyMVVM
 {
-    class MainWindowVM : DependencyObject, INotifyPropertyChanged
+    public class MainWindowVM : DependencyObject, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
