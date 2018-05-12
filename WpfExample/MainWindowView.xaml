@@ -15,7 +15,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Button Width="100" Height="100" Content="{Binding ButtonContext}" Grid.Column="0" Command="{Binding HiButtonCommand}" CommandParameter="Здрасти" />
+        <Button Width="100" Height="100" Content="{Binding HiButtonContent}" Grid.Column="0" Command="{Binding HiButtonCommand}" CommandParameter="Здрасти" />
         <Button Width="100" Height="100" Content="Toggle Click" Grid.Column="1" Command="{Binding ToggleExecuteCommand}" />
     </Grid>
 </Window>

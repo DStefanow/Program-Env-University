@@ -7,7 +7,7 @@ namespace WpfExample
     {
         private Action<object> execute;
         private Predicate<object> canExecute;
-        public event EventHandler CanExecuteChanged;
+        private event EventHandler CanExecuteChangedInternal;
 
         public RelayCommand(Action<object> execute) : this(execute, DefaultCanExecute)
         {
@@ -20,7 +20,7 @@ namespace WpfExample
             this.canExecute = canExecute ?? throw new ArgumentNullException("canExecute");
         }
 
-        public event EventHandler CanExecuteHandler
+        public event EventHandler CanExecuteChanged
         {
             add
             {
