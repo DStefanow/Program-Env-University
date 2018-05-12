@@ -188,6 +188,9 @@ namespace StudentInfoSystem
                 
                 clearAllTextBoxes();
                 ChangeAccessToAllBoxes(false);
+
+                addMarkBtn.Visibility = Visibility.Hidden;
+                btnGetStudentInfo.Visibility = Visibility.Hidden;
             }
         }
 
