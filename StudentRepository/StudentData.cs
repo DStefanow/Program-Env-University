@@ -23,7 +23,6 @@ namespace StudentRepository
             string secondName = "Stefanov";
             string lastName = "Milenov";
             string[] facility = { "FKST", "MT", "FTT", "Auto", "Engineering" };
-            string[] specialization = { "Programmer", "Engineer", "Auto-master", "Sys admin", "Doctor"};
             string facNumber = "121215019";
             DateTime lastCheck = DateTime.Now;
             
@@ -34,7 +33,7 @@ namespace StudentRepository
                 student.secondName = secondName + (char)(97 + i);
                 student.lastName = lastName + (char)(97 + i);
                 student.facility = facility[i];
-                student.specialization = specialization[i];
+                student.specialization = (SpecializationStatus)(i % StudentData.STUDENT_COUNTS);
                 student.educationDegree = (EducationDegree)(i % StudentData.STUDENT_COUNTS);
                 student.status = (DegreeStatus)(i % StudentData.STUDENT_COUNTS);
                 student.facNumber = facNumber + i;
@@ -59,7 +58,7 @@ namespace StudentRepository
             }
             catch (Exception e)
             {
-                Console.WriteLine("Exception: Invalid or missing fac. number");
+                Console.WriteLine(e.Message);
             }
 
             if (student != null)

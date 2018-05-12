@@ -93,7 +93,7 @@
                  TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Text="{Binding Path=facility}"/>
                     <ComboBox Name="specializationBox" HorizontalAlignment="Left" Height="23" Margin="110,42,0,0"
                  VerticalAlignment="Top" Width="100" ItemsSource="{Binding Source={StaticResource SpecializationDataSource}, 
-                        XPath=Specialization}">
+                        XPath=Specialization}" SelectedIndex="{Binding Path=specialization}">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <Label Content="{Binding XPath=@Content}"/>
@@ -101,13 +101,13 @@
                         </ComboBox.ItemTemplate>
                     </ComboBox>
                     <ComboBox x:Name="educationDegreeBox" HorizontalAlignment="Left" Height="23" Margin="110,72,0,0"
-                 VerticalAlignment="Top" Width="100"/>
+                 VerticalAlignment="Top" Width="100" SelectedItem="{Binding Path=educationDegree}"/>
                     <ComboBox x:Name="degreeStatusBox" HorizontalAlignment="Left" Height="23" Margin="110,102,0,0"
-                 VerticalAlignment="Top" Width="100"/>
+                 VerticalAlignment="Top" Width="100" SelectedItem="{Binding Path=status}"/>
                     <TextBox x:Name="facNumberBox" HorizontalAlignment="Left" Height="23" Margin="110,132,0,0"
                  TextWrapping="Wrap" VerticalAlignment="Top" Width="100" Text="{Binding Path=facNumber}"/>
                     <ComboBox x:Name="courseBox" HorizontalAlignment="Left" Height="23" Margin="280,12,0,0"
-                 VerticalAlignment="Top" Width="50"/>
+                 VerticalAlignment="Top" Width="50" SelectedItem="{Binding Path=course}"/>
                     <TextBox x:Name="streamBox" HorizontalAlignment="Left" Height="23" Margin="280,42,0,0"
                  TextWrapping="Wrap" VerticalAlignment="Top" Width="50" Text="{Binding Path=stream}" />
                     <TextBox x:Name="groupBox" HorizontalAlignment="Left" Height="23" Margin="280,72,0,0"

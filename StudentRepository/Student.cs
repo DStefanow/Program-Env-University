@@ -9,7 +9,7 @@ namespace StudentRepository
         public string lastName { get; set; }
 
         public string facility { get; set; }
-        public string specialization { get; set; }
+        public SpecializationStatus specialization { get; set; }
         public EducationDegree educationDegree { get; set; }
         public DegreeStatus status { get; set; }
         public string facNumber { get; set; }

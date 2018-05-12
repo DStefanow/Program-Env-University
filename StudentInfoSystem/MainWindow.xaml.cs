@@ -102,26 +102,24 @@ namespace StudentInfoSystem
             catch (Exception exp)
             {
                 MessageBox.Show(exp.Message);
-                return student=StudentData.GetStudent("1212150190");
             }
 
             return student;
-            //AddStudentInfo(student);
         }
 
         private void AddStudentInfo(Student student)
         {   
-            // Clear personal info
+            // Add personal info
             firstNameBox.Text = student.firstName;
             secondNameBox.Text = student.secondName;
             lastNameBox.Text = student.lastName;
             
-            // Clear student info
+            // Add student info
             educationDegreeBox.SelectedIndex = (int)(EducationDegree)student.educationDegree;
             degreeStatusBox.SelectedIndex = (int)(DegreeStatus)student.status;
             courseBox.SelectedIndex = student.course;
             facilityBox.Text = student.facility;
-            //specializationBox.Text = student.specialization;
+            specializationBox.SelectedIndex = (int)(SpecializationStatus)student.specialization;
             facNumberBox.Text = student.facNumber;
             streamBox.Text = student.stream.ToString();
             groupBox.Text = student.group.ToString();
@@ -151,6 +149,9 @@ namespace StudentInfoSystem
                     GetStudentInfoByFacNumber(user.facNumber);
                     loginBtn.IsEnabled = false;
                     logoutBtn.IsEnabled = true;
+
+                    this.student = GetStudentInfoByFacNumber(user.facNumber);
+                    this.DataContext = this.student;
                 }
 
                 // Professor role

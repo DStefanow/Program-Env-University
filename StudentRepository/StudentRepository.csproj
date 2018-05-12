@@ -46,6 +46,7 @@
     <Compile Include="EducationDegree.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpecializationStatus.cs" />
     <Compile Include="Student.cs" />
     <Compile Include="StudentData.cs" />
     <Compile Include="StudentValidation.cs" />
