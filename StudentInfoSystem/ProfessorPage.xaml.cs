@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Controls;
 using StudentRepository;
 
@@ -45,11 +46,19 @@ namespace StudentInfoSystem
                 return;
             }
 
-            Student student = StudentData.GetStudent(facNumber);
+            Student student = null;
 
-            string fullName = student.firstName + " " + student.secondName + " " + student.lastName;
+            try
+            {
+                student = StudentData.GetStudent(facNumber);
 
-            this.studentsList.Items.Add(fullName);
+                string fullName = student.firstName + " " + student.secondName + " " + student.lastName;
+                this.studentsList.Items.Add(fullName);
+            }
+            catch (Exception exp)
+            {
+                MessageBox.Show(exp.Message);
+            }
         }
     }
 }
