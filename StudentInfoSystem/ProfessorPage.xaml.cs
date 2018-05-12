@@ -47,7 +47,6 @@ namespace StudentInfoSystem
             }
 
             Student student = null;
-
             try
             {
                 student = StudentData.GetStudent(facNumber);

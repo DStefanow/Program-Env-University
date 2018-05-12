@@ -6,10 +6,6 @@ using UserLogin;
 
 namespace StudentInfoSystem
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    /// 
     public partial class MainWindow : Window
     {
         public User user;
@@ -23,7 +19,7 @@ namespace StudentInfoSystem
 
             addMarkBtn.Visibility = Visibility.Hidden;
             btnGetStudentInfo.Visibility = Visibility.Hidden;
-            disableAllBoxes();
+            ChangeAccessToAllBoxes(false);
             clearAllTextBoxes();
 
             educationDegreeBox.SelectedIndex = 0;
@@ -71,48 +67,12 @@ namespace StudentInfoSystem
 
         private void btnMakeDisable_Click(object sender, RoutedEventArgs e)
         {
-            disableAllBoxes();
-        }
-
-        private void disableAllBoxes()
-        {
-            // Clear personal info
-            firstNameBox.IsEnabled = false;
-            secondNameBox.IsEnabled = false;
-            lastNameBox.IsEnabled = false;
-
-            // Clear student info
-            educationDegreeBox.IsEnabled = false;
-            degreeStatusBox.IsEnabled = false;
-            courseBox.IsEnabled = false;
-            facilityBox.IsEnabled = false;
-            specializationBox.IsEnabled = false;
-            facNumberBox.IsEnabled = false;
-            streamBox.IsEnabled = false;
-            groupBox.IsEnabled = false;
+            ChangeAccessToAllBoxes(false);
         }
 
         private void btnMakeEnable_Click(object sender, RoutedEventArgs e)
         {
-            enableAllBoxes();
-        }
-
-        private void enableAllBoxes()
-        {
-            // Clear personal info
-            firstNameBox.IsEnabled = true;
-            secondNameBox.IsEnabled = true;
-            lastNameBox.IsEnabled = true;
-
-            // Clear student info
-            educationDegreeBox.IsEnabled = true;
-            degreeStatusBox.IsEnabled = true;
-            courseBox.IsEnabled = true;
-            facilityBox.IsEnabled = true;
-            specializationBox.IsEnabled = true;
-            facNumberBox.IsEnabled = true;
-            streamBox.IsEnabled = true;
-            groupBox.IsEnabled = true;
+            ChangeAccessToAllBoxes(true);
         }
 
         private void btnGetStudentInfo_Click(object sender, RoutedEventArgs e)
@@ -187,7 +147,7 @@ namespace StudentInfoSystem
                 // Student role
                 if (user.roleId == 4)
                 {
-                    enableAllBoxes();
+                    ChangeAccessToAllBoxes(true);
                     GetStudentInfoByFacNumber(user.facNumber);
                     loginBtn.IsEnabled = false;
                     logoutBtn.IsEnabled = true;
@@ -196,7 +156,7 @@ namespace StudentInfoSystem
                 // Professor role
                 else if (user.roleId == 1)
                 {
-                    enableAllBoxes();
+                    ChangeAccessToAllBoxes(true);
                     clearAllTextBoxes();
                     addMarkBtn.Visibility = Visibility.Visible;
                     btnGetStudentInfo.Visibility = Visibility.Visible;
@@ -226,8 +186,26 @@ namespace StudentInfoSystem
                 logoutBtn.IsEnabled = false;
                 
                 clearAllTextBoxes();
-                disableAllBoxes();
+                ChangeAccessToAllBoxes(false);
             }
+        }
+
+        private void ChangeAccessToAllBoxes(bool option)
+        {
+            // Clear personal info
+            firstNameBox.IsEnabled = option;
+            secondNameBox.IsEnabled = option;
+            lastNameBox.IsEnabled = option;
+
+            // Clear student info
+            educationDegreeBox.IsEnabled = option;
+            degreeStatusBox.IsEnabled = option;
+            courseBox.IsEnabled = option;
+            facilityBox.IsEnabled = option;
+            specializationBox.IsEnabled = option;
+            facNumberBox.IsEnabled = option;
+            streamBox.IsEnabled = option;
+            groupBox.IsEnabled = option;
         }
     }
 }
