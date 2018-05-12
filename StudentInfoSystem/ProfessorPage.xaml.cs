@@ -5,9 +5,6 @@ using StudentRepository;
 
 namespace StudentInfoSystem
 {
-    /// <summary>
-    /// Interaction logic for ProfessorPage.xaml
-    /// </summary>
     public partial class ProfessorPage : Page
     {
         public ProfessorPage()
@@ -19,6 +16,7 @@ namespace StudentInfoSystem
 
         public void addAllStudents()
         {
+            clearListBox();
             StudentData.AddSomeStudents();
             List<Student> students = StudentData.DefaultStudents;
 
@@ -47,9 +45,7 @@ namespace StudentInfoSystem
                 return;
             }
 
-            Student student = null;
-                student = StudentData.GetStudent(facNumber);
-           
+            Student student = StudentData.GetStudent(facNumber);
 
             string fullName = student.firstName + " " + student.secondName + " " + student.lastName;
 

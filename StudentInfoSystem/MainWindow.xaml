@@ -46,7 +46,7 @@
                     <TextBox x:Name="firstNameBox" HorizontalAlignment="Left" Height="23" Margin="80,12,30,0"
                  TextWrapping="Wrap" VerticalAlignment="Top" Width="217" Text="{Binding Path=firstName}" />
                     <TextBox x:Name="secondNameBox" HorizontalAlignment="Left" Height="23" Margin="80,42,30,0"
-                 TextWrapping="Wrap" VerticalAlignment="Top" Width="217" Text="{Binding Path=firstName}"/>
+                 TextWrapping="Wrap" VerticalAlignment="Top" Width="217" Text="{Binding Path=secondName}"/>
                     <TextBox x:Name="lastNameBox" HorizontalAlignment="Left" Height="23" Margin="80,72,30,0"
                  TextWrapping="Wrap" VerticalAlignment="Top" Width="217" Text="{Binding Path=firstName}"/>
                 </Grid>
