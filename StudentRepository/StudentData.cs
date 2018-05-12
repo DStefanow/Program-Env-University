@@ -13,6 +13,12 @@ namespace StudentRepository
         
         public static void AddSomeStudents()
         {
+            // Default students are already added
+            if (DefaultStudents.Count != 0)
+            {
+                return;
+            }
+
             string firstName = "Dobromir";
             string secondName = "Stefanov";
             string lastName = "Milenov";
