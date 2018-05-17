@@ -3,6 +3,9 @@ using System.Windows.Navigation;
 using System;
 using StudentRepository;
 using UserLogin;
+using System.Data;
+using System.Data.SqlClient;
+using System.Collections.Generic;
 
 namespace StudentInfoSystem
 {
@@ -11,6 +14,8 @@ namespace StudentInfoSystem
         public User user;
 
         public Student student { get; set; }
+
+        public List<string> StudStatusChoices { get; set; }
 
         public MainWindow()
         {
@@ -41,6 +46,12 @@ namespace StudentInfoSystem
             }
             
             logoutBtn.IsEnabled = false;
+        }
+
+        private void FillStudStatusCoices()
+        {
+            StudStatusChoices = new List<string>();
+            // TODO ...
         }
 
         private void clearBtn_Click(object sender, RoutedEventArgs e)
