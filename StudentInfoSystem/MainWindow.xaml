@@ -100,8 +100,11 @@
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
                     </ComboBox>
-                    <ComboBox x:Name="educationDegreeBox" HorizontalAlignment="Left" Height="23" Margin="110,72,0,0"
-                 VerticalAlignment="Top" Width="100" SelectedItem="{Binding Path=educationDegree}"/>
+                    <ListBox x:Name="educationDegreeBox" HorizontalAlignment="Left" Height="23" Margin="110,72,0,0"
+                        VerticalAlignment="Top" Width="100" ItemsSource="{Binding StudStatusChoices}">
+                    </ListBox>
+                    <!-- <ComboBox x:Name="educationDegreeBox" HorizontalAlignment="Left" Height="23" Margin="110,72,0,0"
+                 VerticalAlignment="Top" Width="100" SelectedItem="{Binding Path=educationDegree}"/> -->
                     <ComboBox x:Name="degreeStatusBox" HorizontalAlignment="Left" Height="23" Margin="110,102,0,0"
                  VerticalAlignment="Top" Width="100" SelectedItem="{Binding Path=status}"/>
                     <TextBox x:Name="facNumberBox" HorizontalAlignment="Left" Height="23" Margin="110,132,0,0"

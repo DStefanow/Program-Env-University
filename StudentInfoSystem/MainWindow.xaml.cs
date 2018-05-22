@@ -27,17 +27,20 @@ namespace StudentInfoSystem
             ChangeAccessToAllBoxes(false);
             clearAllTextBoxes();
 
+            // Get information for student degree from database
+            FillStudStatusChoices();
+            
             educationDegreeBox.SelectedIndex = 0;
             foreach (EducationDegree degree in Enum.GetValues(typeof(EducationDegree)))
             {
-                educationDegreeBox.Items.Add(degree);
+               educationDegreeBox.Items.Add(degree);
             }
 
-            degreeStatusBox.SelectedIndex = 0;
-            foreach (DegreeStatus degreeStatus in Enum.GetValues(typeof(DegreeStatus)))
-            {
-                degreeStatusBox.Items.Add(degreeStatus);
-            }
+            //degreeStatusBox.SelectedIndex = 0;
+            //foreach (DegreeStatus degreeStatus in Enum.GetValues(typeof(DegreeStatus)))
+            //{
+            //    degreeStatusBox.Items.Add(degreeStatus);
+            //}
 
             courseBox.SelectedIndex = 0;
             for (ushort i = 1; i < 5; i++)
@@ -51,7 +54,28 @@ namespace StudentInfoSystem
         private void FillStudStatusChoices()
         {
             StudStatusChoices = new List<string>();
-            // TODO ...
+
+            using (IDbConnection connection = new SqlConnection(Properties.Settings.Default.DbConnect))
+            {
+                string sql = @"SELECT status_description FROM student_status";
+                IDbCommand cmd = new SqlCommand();
+                cmd.Connection = connection;
+                connection.Open();
+
+                cmd.CommandText = sql;
+                IDataReader reader = cmd.ExecuteReader();
+
+                bool notEndOfResult;
+                notEndOfResult = reader.Read();
+
+                while (notEndOfResult)
+                {
+                    string str = reader.GetString(0);
+                    StudStatusChoices.Add(str);
+
+                    notEndOfResult = reader.Read();
+                }
+            }
         }
 
         private void clearBtn_Click(object sender, RoutedEventArgs e)
