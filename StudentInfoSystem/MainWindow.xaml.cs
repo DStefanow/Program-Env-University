@@ -48,7 +48,7 @@ namespace StudentInfoSystem
             logoutBtn.IsEnabled = false;
         }
 
-        private void FillStudStatusCoices()
+        private void FillStudStatusChoices()
         {
             StudStatusChoices = new List<string>();
             // TODO ...
