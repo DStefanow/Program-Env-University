@@ -4,19 +4,20 @@ namespace StudentRepository
 {
     public class Student
     {
-        public string firstName { get; set; }
-        public string secondName { get; set; }
-        public string lastName { get; set; }
+        public int StudentId { get; set; }
+        public string FirstName { get; set; }
+        public string SecondName { get; set; }
+        public string LastName { get; set; }
 
-        public string facility { get; set; }
-        public SpecializationStatus specialization { get; set; }
-        public EducationDegree educationDegree { get; set; }
-        public DegreeStatus status { get; set; }
-        public string facNumber { get; set; }
-        public DateTime lastCheck { get; set; }
+        public string Facility { get; set; }
+        public SpecializationStatus Specialization { get; set; }
+        public EducationDegree EducationDegree { get; set; }
+        public DegreeStatus Status { get; set; }
+        public string FacNumber { get; set; }
+        public DateTime LastCheck { get; set; }
 
-        public ushort course { get; set; }
-        public ushort stream { get; set; }
-        public char group { get; set; }
+        public ushort Course { get; set; }
+        public ushort Stream { get; set; }
+        public char Group { get; set; }
     }
 }

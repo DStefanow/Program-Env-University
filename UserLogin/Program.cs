@@ -17,13 +17,13 @@ namespace UserLogin
             LoginValidation validator = new LoginValidation(username, password, ValidationErrorHandler);
 
             User user = new User();
-            user.username = username;
-            user.password = password;
+            user.Username = username;
+            user.Password = password;
 
             if (validator.ValidateUserInput(ref user))
             {
                 Console.WriteLine("Data for user: Username - {0}, Password - {1}, Fac. Number: {2}, date register: {3}, role: {4}",
-                    user.username, user.password, user.facNumber, user.created, LoginValidation.currentUserRole);
+                    user.Username, user.Password, user.FacNumber, user.Created, LoginValidation.currentUserRole);
 
                 if (LoginValidation.currentUserRole.ToString() == "ADMIN")
                 {

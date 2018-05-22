@@ -23,7 +23,7 @@ namespace StudentInfoSystem
 
             foreach (Student student in students)
             {
-                string fullName = student.firstName + " " + student.secondName + " " + student.lastName;
+                string fullName = student.FirstName + " " + student.SecondName + " " + student.LastName;
 
                 this.studentsList.Items.Add(fullName);
             }
@@ -51,7 +51,7 @@ namespace StudentInfoSystem
             {
                 student = StudentData.GetStudent(facNumber);
 
-                string fullName = student.firstName + " " + student.secondName + " " + student.lastName;
+                string fullName = student.FirstName + " " + student.SecondName + " " + student.LastName;
                 this.studentsList.Items.Add(fullName);
             }
             catch (Exception exp)

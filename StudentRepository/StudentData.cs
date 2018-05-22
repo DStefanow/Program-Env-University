@@ -29,18 +29,18 @@ namespace StudentRepository
             for (int i = 0; i < StudentData.STUDENT_COUNTS; i++)
             {
                 Student student = new Student();
-                student.firstName = firstName + (char)(97 + i);
-                student.secondName = secondName + (char)(97 + i);
-                student.lastName = lastName + (char)(97 + i);
-                student.facility = facility[i];
-                student.specialization = (SpecializationStatus)(i % StudentData.STUDENT_COUNTS);
-                student.educationDegree = (EducationDegree)(i % StudentData.STUDENT_COUNTS);
-                student.status = (DegreeStatus)(i % StudentData.STUDENT_COUNTS);
-                student.facNumber = facNumber + i;
-                student.lastCheck = lastCheck.AddDays(i);
-                student.course = (ushort)(i + 1);
-                student.stream = (ushort)(i + 1);
-                student.group = (char)(i + 65);
+                student.FirstName = firstName + (char)(97 + i);
+                student.SecondName = secondName + (char)(97 + i);
+                student.LastName = lastName + (char)(97 + i);
+                student.Facility = facility[i];
+                student.Specialization = (SpecializationStatus)(i % StudentData.STUDENT_COUNTS);
+                student.EducationDegree = (EducationDegree)(i % StudentData.STUDENT_COUNTS);
+                student.Status = (DegreeStatus)(i % StudentData.STUDENT_COUNTS);
+                student.FacNumber = facNumber + i;
+                student.LastCheck = lastCheck.AddDays(i);
+                student.Course = (ushort)(i + 1);
+                student.Stream = (ushort)(i + 1);
+                student.Group = (char)(i + 65);
 
                 StudentData.DefaultStudents.Add(student);
             }
@@ -53,7 +53,7 @@ namespace StudentRepository
             {
                 // Get the student that has this fac. number
                 student = (from students in StudentData.DefaultStudents
-                                   where students.facNumber.Equals(facNumber)
+                                   where students.FacNumber.Equals(facNumber)
                                    select students).Last();
             }
             catch (Exception e)
@@ -71,12 +71,12 @@ namespace StudentRepository
 
         public static string PrepareSertificate(Student student)
         {
-            string fullName = student.firstName + " " + student.secondName + " " + student.lastName;
+            string fullName = student.FirstName + " " + student.SecondName + " " + student.LastName;
 
-            string certificate = $"The student: {fullName}, with fac.number: {student.facNumber} is checked in {student.specialization}," +
-                $" education degree: {student.educationDegree}" +
-                $" status:{student.status}, course: {student.course}, stream: {student.stream}" +
-                $" in group: {student.group}. Date check: {student.lastCheck}";
+            string certificate = $"The student: {fullName}, with fac.number: {student.FacNumber} is checked in {student.Specialization}," +
+                $" education degree: {student.EducationDegree}" +
+                $" status:{student.Status}, course: {student.Course}, stream: {student.Stream}" +
+                $" in group: {student.Group}. Date check: {student.LastCheck}";
 
             return certificate;
         }
@@ -97,7 +97,7 @@ namespace StudentRepository
             string certificateText = PrepareSertificate(student);
             
             string certificatePath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName + 
-                    @"\tmp\" + student.firstName + "-" + student.facNumber + ".txt";
+                    @"\tmp\" + student.FirstName + "-" + student.FacNumber + ".txt";
 
             StreamWriter sw = File.CreateText(certificatePath);
 

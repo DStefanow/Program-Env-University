@@ -35,7 +35,7 @@ namespace UserLogin
 
         public bool ValidateUserInput(ref User user)
         {
-            currentUserRole = (UserRoles)user.roleId;
+            currentUserRole = (UserRoles)user.RoleId;
 
             bool isEmptyUsername = this.username.Equals(String.Empty);
             if (isEmptyUsername || this.username.Length < 5)
@@ -62,8 +62,8 @@ namespace UserLogin
                 return false;
             }
 
-            currentUserRole = (UserRoles)user.roleId;
-            LoginValidation.currentUserUsername = user.username;
+            currentUserRole = (UserRoles)user.RoleId;
+            LoginValidation.currentUserUsername = user.Username;
 
             // Set activity in the Logger
             Logger.LogActivity((Activities)0, "logged");

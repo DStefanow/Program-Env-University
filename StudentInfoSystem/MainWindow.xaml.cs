@@ -145,19 +145,19 @@ namespace StudentInfoSystem
         private void AddStudentInfo(Student student)
         {   
             // Add personal info
-            firstNameBox.Text = student.firstName;
-            secondNameBox.Text = student.secondName;
-            lastNameBox.Text = student.lastName;
+            firstNameBox.Text = student.FirstName;
+            secondNameBox.Text = student.SecondName;
+            lastNameBox.Text = student.LastName;
             
             // Add student info
-            educationDegreeBox.SelectedIndex = (int)(EducationDegree)student.educationDegree;
-            degreeStatusBox.SelectedIndex = (int)(DegreeStatus)student.status;
-            courseBox.SelectedIndex = student.course;
-            facilityBox.Text = student.facility;
-            specializationBox.SelectedIndex = (int)(SpecializationStatus)student.specialization;
-            facNumberBox.Text = student.facNumber;
-            streamBox.Text = student.stream.ToString();
-            groupBox.Text = student.group.ToString();
+            educationDegreeBox.SelectedIndex = (int)(EducationDegree)student.EducationDegree;
+            degreeStatusBox.SelectedIndex = (int)(DegreeStatus)student.Status;
+            courseBox.SelectedIndex = student.Course;
+            facilityBox.Text = student.Facility;
+            specializationBox.SelectedIndex = (int)(SpecializationStatus)student.Specialization;
+            facNumberBox.Text = student.FacNumber;
+            streamBox.Text = student.Stream.ToString();
+            groupBox.Text = student.Group.ToString();
         }
 
         private void loginBtn_Click(object sender, RoutedEventArgs e)
@@ -172,25 +172,25 @@ namespace StudentInfoSystem
             LoginValidation validation = new LoginValidation(username, password, UserLogin.Program.ValidationErrorHandler);
 
             user = new User();
-            user.username = username;
-            user.password = password;
+            user.Username = username;
+            user.Password = password;
 
             if (validation.ValidateUserInput(ref user))
             {
                 // Student role
-                if (user.roleId == 4)
+                if (user.RoleId == 4)
                 {
                     ChangeAccessToAllBoxes(true);
-                    GetStudentInfoByFacNumber(user.facNumber);
+                    GetStudentInfoByFacNumber(user.FacNumber);
                     loginBtn.IsEnabled = false;
                     logoutBtn.IsEnabled = true;
 
-                    this.student = GetStudentInfoByFacNumber(user.facNumber);
+                    this.student = GetStudentInfoByFacNumber(user.FacNumber);
                     this.DataContext = this.student;
                 }
 
                 // Professor role
-                else if (user.roleId == 1)
+                else if (user.RoleId == 1)
                 {
                     ChangeAccessToAllBoxes(true);
                     clearAllTextBoxes();
@@ -216,7 +216,7 @@ namespace StudentInfoSystem
             if(!loginBtn.IsEnabled)
             {
                 // Set user role to anonymous id
-                this.user.roleId = (int)UserRoles.ANONYMOUS;
+                this.user.RoleId = (int)UserRoles.ANONYMOUS;
 
                 loginBtn.IsEnabled = true;
                 logoutBtn.IsEnabled = false;

@@ -33,19 +33,19 @@ namespace UserLogin
             {
                 User currentUser = new User();
                 
-                currentUser.username = username + i;
-                currentUser.password = password + i;
-                currentUser.facNumber = facNumber + i;
-                currentUser.created = DateTime.Now;
+                currentUser.Username = username + i;
+                currentUser.Password = password + i;
+                currentUser.FacNumber = facNumber + i;
+                currentUser.Created = DateTime.Now;
                 // set 1 Administrator
                 if (i == 0)
                 {
-                    currentUser.roleId = 1;
+                    currentUser.RoleId = 1;
                 }
                 // set 2 Students
                 else
                 {
-                    currentUser.roleId = 4;
+                    currentUser.RoleId = 4;
                 }
 
                 _testUsers.Add(currentUser);
@@ -58,7 +58,7 @@ namespace UserLogin
 
             for (int i = 0; i < TestUsers.Count; i++)
             {
-                usernames.Add(TestUsers[i].username, i);
+                usernames.Add(TestUsers[i].Username, i);
             }
 
             return usernames;
@@ -68,8 +68,8 @@ namespace UserLogin
         {
             // Het the user with the same username and password
             User searchedUser = (from users in TestUsers
-                                  where (users.username.Equals(user.username) && 
-                                  users.password.Equals(user.password))
+                                  where (users.Username.Equals(user.Username) && 
+                                  users.Password.Equals(user.Password))
                                   select users).FirstOrDefault();
             
             if (searchedUser != null)
@@ -82,16 +82,16 @@ namespace UserLogin
 
         public static void SetUserActiveTo(int userId, DateTime newDateRegister)
         {
-            TestUsers[userId].created = newDateRegister;
-            Logger.LogActivity((Activities)1, "Change date to: " + TestUsers[userId].username + " new date: " + newDateRegister);
+            TestUsers[userId].Created = newDateRegister;
+            Logger.LogActivity((Activities)1, "Change date to: " + TestUsers[userId].Username + " new date: " + newDateRegister);
         }
 
         public static void AssignUserRole(int userId, ushort newRoleId)
         {
             if (Enum.IsDefined(typeof(UserRoles), (int)newRoleId))
             {
-                TestUsers[userId].roleId = newRoleId;
-                Logger.LogActivity((Activities)2, "Change role to: " + TestUsers[userId].username + " new role: " + (UserRoles)newRoleId);
+                TestUsers[userId].RoleId = newRoleId;
+                Logger.LogActivity((Activities)2, "Change role to: " + TestUsers[userId].Username + " new role: " + (UserRoles)newRoleId);
                 return;
             }
 
