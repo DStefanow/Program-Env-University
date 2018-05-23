@@ -15,11 +15,10 @@ using System.Windows.Shapes;
 
 namespace StudentInfoSystem
 {
-    /// <summary>
-    /// Interaction logic for Specializations.xaml
-    /// </summary>
     public partial class SpecializationsPage : Page
     {
+        private StudentInfoContext context = new StudentInfoContext();
+
         public SpecializationsPage()
         {
             InitializeComponent();
@@ -29,14 +28,67 @@ namespace StudentInfoSystem
 
         private void GetSpecializations()
         {
-            StudentInfoContext context = new StudentInfoContext();
-
             List<Specialization> specializations = context.Specializations.ToList();
 
             foreach (Specialization specialization in specializations)
             {
                 this.specializationsList.Items.Add(specialization.Description);
             }
+        }
+        public void clearListBox()
+        {
+            this.specializationsList.Items.Clear();
+        }
+        
+        private void getSpecialization_Click(object sender, RoutedEventArgs e)
+        {
+            string specializationText = this.specializationBox.Text;
+            
+            int specializationId = int.Parse(specializationText);
+
+            clearListBox();
+
+            if (specializationId == 0)
+            {
+                GetSpecializations();
+                return;
+            }
+
+            Specialization specialization = null;
+            try
+            {
+                specialization = (from spec in context.Specializations
+                                  where spec.SpecializationId == specializationId
+                                  select spec).First();
+
+                this.specializationsList.Items.Add(specialization.Description);
+            }
+            catch (Exception exp)
+            {
+                MessageBox.Show(exp.Message);
+            }
+        }
+
+        private void addSpecialization_Click(object sender, RoutedEventArgs e)
+        {
+            string specializationText = this.specializationBox.Text;
+            
+            clearListBox();
+
+            if (specializationText == "")
+            {
+                GetSpecializations();
+                return;
+            }
+
+            Specialization newSpec = new Specialization(specializationText);
+
+            context.Specializations.Add(newSpec);
+            context.SaveChanges();
+
+            this.specializationBox.Clear();
+            clearListBox();
+            GetSpecializations();
         }
     }
 }

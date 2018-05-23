@@ -12,5 +12,10 @@
             SpecializationId = id;
             Description = description;
         }
+
+        public Specialization(string description)
+        {
+            Description = description;
+        }
     }
 }
