@@ -62,6 +62,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="SpecializationsPage.xaml.cs">
+      <DependentUpon>SpecializationsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SpecializationSubject.cs" />
     <Compile Include="Subject.cs" />
     <Compile Include="Specialization.cs" />
@@ -79,6 +82,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ProfessorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SpecializationsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

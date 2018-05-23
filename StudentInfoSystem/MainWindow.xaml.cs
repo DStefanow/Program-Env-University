@@ -231,6 +231,9 @@ namespace StudentInfoSystem
                     NavigationWindow profWindow = new NavigationWindow();
                     profWindow.Content = new ProfessorPage();
                     profWindow.Show();
+                    NavigationWindow specializationWindow = new NavigationWindow();
+                    specializationWindow.Content = new SpecializationsPage();
+                    specializationWindow.Show();
                 }
             }
 
