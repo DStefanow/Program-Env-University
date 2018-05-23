@@ -30,8 +30,6 @@ namespace StudentInfoSystem
             // Get information for student degree from database
             FillStudStatusChoices();
             
-
-
             educationDegreeBox.SelectedIndex = 0;
             foreach (EducationDegree degree in Enum.GetValues(typeof(EducationDegree)))
             {
@@ -39,6 +37,9 @@ namespace StudentInfoSystem
             }
 
             TestStudentsIfEmpty();
+
+            // Add test data
+            //InsertSpecializationExamples();
 
             //degreeStatusBox.SelectedIndex = 0;
             //foreach (DegreeStatus degreeStatus in Enum.GetValues(typeof(DegreeStatus)))
@@ -60,15 +61,31 @@ namespace StudentInfoSystem
             StudentInfoContext context = new StudentInfoContext();
 
             IEnumerable<Student> queryStudents = context.Students;
-
             return false;
+        }
+
+        private void InsertSpecializationExamples()
+        {
+            string[] specializations = { "Computer science", "Engineering", "Driver", "Chef", "Manager" };
+            
+            StudentInfoContext context = new StudentInfoContext();
+
+            int i = 1;
+            foreach (string specialization in specializations)
+            {
+                context.Specializations.Add(new Specialization(i, specialization));
+
+                i++;
+            }
+
+            context.SaveChanges();
         }
 
         private void FillStudStatusChoices()
         {
             StudStatusChoices = new List<string>();
 
-            using (IDbConnection connection = new SqlConnection(Properties.Settings.Default.DbConnect))
+            using (IDbConnection connection = new SqlConnection(Properties.Settings.Default.DbConnection))
             {
                 string sql = @"SELECT status_description FROM student_status";
                 IDbCommand cmd = new SqlCommand();
@@ -167,7 +184,7 @@ namespace StudentInfoSystem
             degreeStatusBox.SelectedIndex = (int)(DegreeStatus)student.Status;
             courseBox.SelectedIndex = student.Course;
             facilityBox.Text = student.Facility;
-            specializationBox.SelectedIndex = (int)(SpecializationStatus)student.Specialization;
+            specializationBox.SelectedIndex = (int)(SpecializationStatus)student.SpecializationId;
             facNumberBox.Text = student.FacNumber;
             streamBox.Text = student.Stream.ToString();
             groupBox.Text = student.Group.ToString();

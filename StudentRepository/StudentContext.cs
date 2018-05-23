@@ -8,6 +8,6 @@ namespace StudentRepository
         public DbSet<Student> Students { get; set; }
         public DbSet<User> Users { get; set; }
 
-        public StudentContext() : base(StudentRepository.Properties.Settings.Default.DbConnection) { }
+        public StudentContext() : base(Properties.Settings.Default.DbConnection) { }
     }
 }

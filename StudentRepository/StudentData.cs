@@ -33,7 +33,7 @@ namespace StudentRepository
                 student.SecondName = secondName + (char)(97 + i);
                 student.LastName = lastName + (char)(97 + i);
                 student.Facility = facility[i];
-                student.Specialization = (SpecializationStatus)(i % StudentData.STUDENT_COUNTS);
+                student.SpecializationId = i % StudentData.STUDENT_COUNTS;
                 student.EducationDegree = (EducationDegree)(i % StudentData.STUDENT_COUNTS);
                 student.Status = (DegreeStatus)(i % StudentData.STUDENT_COUNTS);
                 student.FacNumber = facNumber + i;
@@ -73,7 +73,7 @@ namespace StudentRepository
         {
             string fullName = student.FirstName + " " + student.SecondName + " " + student.LastName;
 
-            string certificate = $"The student: {fullName}, with fac.number: {student.FacNumber} is checked in {student.Specialization}," +
+            string certificate = $"The student: {fullName}, with fac.number: {student.FacNumber} is checked in {student.SpecializationId}," +
                 $" education degree: {student.EducationDegree}" +
                 $" status:{student.Status}, course: {student.Course}, stream: {student.Stream}" +
                 $" in group: {student.Group}. Date check: {student.LastCheck}";

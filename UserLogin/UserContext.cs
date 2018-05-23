@@ -6,6 +6,6 @@ namespace UserLogin
     {
         public DbSet<User> Users { get; set; }
 
-        public UserContext() : base(UserLogin.Properties.Settings.Default.DbConnection) { }
+        public UserContext() : base(Properties.Settings.Default.DbConnection) { }
     }
 }
