@@ -62,6 +62,7 @@
     <Compile Include="User.cs" />
     <Compile Include="UserData.cs" />
     <Compile Include="UserRoles.cs" />
+    <Compile Include="UserContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

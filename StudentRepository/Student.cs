@@ -19,5 +19,8 @@ namespace StudentRepository
         public ushort Course { get; set; }
         public ushort Stream { get; set; }
         public char Group { get; set; }
+
+        // Foreign keys to other tables
+        public int SpecializationId { get; set; }
     }
 }

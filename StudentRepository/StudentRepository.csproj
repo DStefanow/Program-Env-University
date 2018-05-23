@@ -60,6 +60,7 @@
     </Compile>
     <Compile Include="SpecializationStatus.cs" />
     <Compile Include="Student.cs" />
+    <Compile Include="StudentContext.cs" />
     <Compile Include="StudentData.cs" />
     <Compile Include="StudentValidation.cs" />
   </ItemGroup>

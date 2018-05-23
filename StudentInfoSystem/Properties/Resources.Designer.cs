@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace StudentInfoSystem.Properties {
+namespace StudentRepository.Properties {
     using System;
     
     

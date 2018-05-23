@@ -30,11 +30,15 @@ namespace StudentInfoSystem
             // Get information for student degree from database
             FillStudStatusChoices();
             
+
+
             educationDegreeBox.SelectedIndex = 0;
             foreach (EducationDegree degree in Enum.GetValues(typeof(EducationDegree)))
             {
                educationDegreeBox.Items.Add(degree);
             }
+
+            TestStudentsIfEmpty();
 
             //degreeStatusBox.SelectedIndex = 0;
             //foreach (DegreeStatus degreeStatus in Enum.GetValues(typeof(DegreeStatus)))
@@ -49,6 +53,15 @@ namespace StudentInfoSystem
             }
             
             logoutBtn.IsEnabled = false;
+        }
+
+        private bool TestStudentsIfEmpty()
+        {
+            StudentInfoContext context = new StudentInfoContext();
+
+            IEnumerable<Student> queryStudents = context.Students;
+
+            return false;
         }
 
         private void FillStudStatusChoices()
